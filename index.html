@@ -19,41 +19,52 @@ body {
 .hero {
   position:relative;
   height:300px;
+  overflow:hidden;
 }
 
 .hero img {
   width:100%;
-  filter: brightness(1.1) contrast(1.1);
   height:100%;
   object-fit:cover;
+  filter: brightness(1.1) contrast(1.1);
 }
 
+/* OVERLAY */
 .hero::after {
-
+  content:"";
+  position:absolute;
+  inset:0;
   background: linear-gradient(
-
     to top,
-
     rgba(0,0,0,0.7),
-
     rgba(0,0,0,0.15)
-
   );
-
 }
 
+/* CONTENIDO HERO */
 .hero-content {
   position:absolute;
   bottom:20px;
   left:20px;
   right:20px;
   color:white;
+  z-index:2;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+}
 
+.hero-content h1 {
+  margin:0;
+  font-size:22px;
   letter-spacing: -0.5px;
 }
 
+.hero-content p {
+  margin:5px 0 10px;
+  font-size:14px;
+}
+
+/* BOTÓN */
 .cta {
-  margin-top:10px;
   display:block;
   padding:14px;
   background:#25D366;
@@ -61,22 +72,20 @@ body {
   border-radius:10px;
   color:white;
   text-decoration:none;
-  .cta {
-
-  transition: 0.2s;
-
+  font-weight:600;
+  transition:0.2s;
 }
 
 .cta:hover {
-
   transform: scale(1.03);
 }
 
-/* FORM */
+/* CONTENEDOR */
 .container {
   padding:20px;
 }
 
+/* FORM */
 .form-box {
   background:white;
   padding:20px;
@@ -91,6 +100,7 @@ select, textarea {
   margin-top:10px;
   border-radius:10px;
   border:1px solid #ccc;
+  font-family:'Poppins',sans-serif;
 }
 
 button {
@@ -102,6 +112,7 @@ button {
   border:none;
   border-radius:12px;
   font-weight:600;
+  cursor:pointer;
 }
 
 /* RESEÑAS */
@@ -114,9 +125,10 @@ button {
   padding:15px;
   border-radius:12px;
   margin-bottom:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* BOTÓN */
+/* BOTÓN FLOTANTE */
 .floating {
   position:fixed;
   bottom:15px;
@@ -128,6 +140,8 @@ button {
   padding:15px;
   border-radius:15px;
   text-decoration:none;
+  font-weight:600;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 </style>
@@ -135,15 +149,23 @@ button {
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
-  <img src="img/hero.png">
+  <img src="img/hero.png" alt="Servicios Ecotyal">
+
   <div class="hero-content">
-  
+    <h1>Pedí tu presupuesto en 1 minuto</h1>
+    <p>Respuesta rápida, sin vueltas y con garantía</p>
+
+    <a href="#" class="cta" onclick="sendLead(); return false;">
+      Pedir presupuesto GRATIS
+    </a>
   </div>
 </section>
 
 <div class="container">
 
+<!-- FORMULARIO -->
 <div class="form-box">
 
 <h3>¿Qué necesitás?</h3>
@@ -173,6 +195,7 @@ button {
 
 </div>
 
+<!-- RESEÑAS -->
 <div class="reviews">
   <h3>Clientes reales</h3>
 
@@ -183,7 +206,10 @@ button {
 
 </div>
 
-<a class="floating" href="#" onclick="sendLead()">💬 Enviar por WhatsApp</a>
+<!-- BOTÓN WHATSAPP -->
+<a class="floating" href="#" onclick="sendLead(); return false;">
+💬 Enviar por WhatsApp
+</a>
 
 <script>
 
