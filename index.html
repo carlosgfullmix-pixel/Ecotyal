@@ -29,33 +29,41 @@ body {
   filter: brightness(1.1) contrast(1.1);
 }
 
-/* OVERLAY */
+/* OVERLAY PRO */
 .hero::after {
   content:"";
   position:absolute;
   inset:0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.7),
-    rgba(0,0,0,0.15)
+    rgba(0,0,0,0.75) 20%,
+    rgba(0,0,0,0.4) 50%,
+    rgba(0,0,0,0.1) 100%
   );
 }
 
-/* CONTENIDO HERO */
+/* CONTENIDO HERO (REPOSICIONADO) */
 .hero-content {
   position:absolute;
-  bottom:20px;
+  top:55%;
+  transform: translateY(-50%);
   left:20px;
   right:20px;
+  max-width:500px;
   color:white;
   z-index:2;
   text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+
+  /* FONDO SUTIL PRO */
+  background: rgba(0,0,0,0.25);
+  padding:15px;
+  border-radius:12px;
 }
 
 .hero-content h1 {
   margin:0;
   font-size:22px;
-  letter-spacing: -0.5px;
+  letter-spacing:-0.5px;
 }
 
 .hero-content p {
@@ -66,7 +74,7 @@ body {
 /* BOTÓN */
 .cta {
   display:block;
-  padding:14px;
+  padding:12px;
   background:#25D366;
   text-align:center;
   border-radius:10px;
@@ -85,12 +93,23 @@ body {
   padding:20px;
 }
 
+/* BLOQUE CONFIANZA */
+.trust {
+  background:white;
+  padding:12px;
+  text-align:center;
+  font-size:13px;
+  border-radius:12px;
+  margin:-20px 20px 10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
 /* FORM */
 .form-box {
   background:white;
   padding:20px;
   border-radius:15px;
-  margin-top:-30px;
+  margin-top:10px;
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
@@ -113,6 +132,13 @@ button {
   border-radius:12px;
   font-weight:600;
   cursor:pointer;
+}
+
+/* TEXTO URGENCIA */
+.urgency-text {
+  font-size:12px;
+  margin-top:10px;
+  text-align:center;
 }
 
 /* RESEÑAS */
@@ -154,14 +180,23 @@ button {
   <img src="img/hero.png" alt="Servicios Ecotyal">
 
   <div class="hero-content">
-    <h1>Pedí tu presupuesto en 1 minuto</h1>
-    <p>Respuesta rápida, sin vueltas y con garantía</p>
+    <h1>Electricidad, plomería y arreglos en el día</h1>
+    <p>Trabajos rápidos en Mar del Plata con garantía real</p>
 
     <a href="#" class="cta" onclick="sendLead(); return false;">
-      Pedir presupuesto GRATIS
+      Pedir presupuesto GRATIS por WhatsApp
     </a>
+
+    <p style="font-size:12px; margin-top:10px;">
+      ⚡ Respondemos en menos de 10 minutos
+    </p>
   </div>
 </section>
+
+<!-- CONFIANZA -->
+<div class="trust">
+  ⭐⭐⭐⭐⭐ +50 clientes satisfechos &nbsp; | &nbsp; 📍 Mar del Plata &nbsp; | &nbsp; ⏱ Respuesta rápida
+</div>
 
 <div class="container">
 
@@ -191,7 +226,11 @@ button {
 
 <textarea id="details" placeholder="Ej: pérdida de agua, instalación eléctrica..."></textarea>
 
-<button onclick="sendLead()">Solicitar presupuesto</button>
+<button onclick="sendLead()">💬 Recibir presupuesto por WhatsApp</button>
+
+<p class="urgency-text">
+⚡ Respondemos en menos de 10 minutos
+</p>
 
 </div>
 
@@ -218,7 +257,7 @@ function sendLead() {
   let urgency = document.getElementById("urgency").value;
   let details = document.getElementById("details").value;
 
-  let msg = "Hola, quiero un presupuesto%0A";
+  let msg = "Hola, necesito un presupuesto y me gustaría saber disponibilidad%0A";
 
   if(service) msg += "Servicio: " + service + "%0A";
   if(urgency) msg += "Urgencia: " + urgency + "%0A";
