@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecotyal - Soluciones para el Hogar</title>
+
+<style>
+body {font-family: Arial, sans-serif; margin:0; background:#eef2f3;}
+header {background:#2e7d32; color:white; padding:25px; text-align:center;}
+nav {display:flex; justify-content:center; gap:15px; background:#1b5e20; padding:10px;}
+nav a {color:white; text-decoration:none; font-weight:bold;}
+section {padding:25px;}
+.services {display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px;}
+.card {background:white; padding:15px; border-radius:12px; box-shadow:0 3px 8px rgba(0,0,0,0.1);}
+form input, form textarea {width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;}
+button {background:#2e7d32; color:white; border:none; padding:12px; border-radius:8px; width:100%; font-size:16px;}
+footer {text-align:center; padding:15px; background:#ddd;}
+
+/* WhatsApp floating button */
+.whatsapp {
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:20px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+</style>
+
+<script>
+function enviarFormulario(event){
+event.preventDefault();
+let nombre = document.getElementById("nombre").value;
+let mensaje = document.getElementById("mensaje").value;
+
+let texto = "Hola, soy " + nombre + ". Necesito: " + mensaje;
+let url = "https://wa.me/5492234376369?text=" + encodeURIComponent(texto);
+
+window.open(url, "_blank");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>Ecotyal</h1>
+<p>Soluciones integrales para tu hogar</p>
+</header>
+
+<nav>
+<a href="#servicios">Servicios</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<section id="servicios">
+<h2>Servicios</h2>
+<div class="services">
+<div class="card">⚡ Electricidad</div>
+<div class="card">🚿 Plomería</div>
+<div class="card">🔥 Gas</div>
+<div class="card">🌿 Jardinería</div>
+<div class="card">🧱 Albañilería</div>
+<div class="card">🎨 Decoración</div>
+</div>
+</section>
+
+<section id="contacto">
+<h2>Solicitar servicio</h2>
+<form onsubmit="enviarFormulario(event)">
+<input type="text" id="nombre" placeholder="Tu nombre" required>
+<textarea id="mensaje" placeholder="¿Qué necesitas?" required></textarea>
+<button type="submit">Enviar por WhatsApp</button>
+</form>
+</section>
+
+<a class="whatsapp" href="https://wa.me/5492234376369" target="_blank">💬</a>
+
+<footer>
+<p>© 2026 Ecotyal</p>
+</footer>
+
+</body>
+</html>
