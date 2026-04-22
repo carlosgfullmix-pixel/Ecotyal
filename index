@@ -1,1 +1,259 @@
+<!DOCTYPE html>
 
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Ecotyal - Soluciones para el hogar</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    body {
+
+      margin: 0;
+
+      font-family: 'Poppins', sans-serif;
+
+      background: #f9fafb;
+
+      color: #222;
+
+    }
+
+    .container {
+
+      max-width: 1000px;
+
+      margin: auto;
+
+      padding: 20px;
+
+    }
+
+    header {
+
+      padding: 20px;
+
+      font-weight: 600;
+
+      font-size: 22px;
+
+    }
+
+    .hero {
+
+      text-align: center;
+
+      padding: 60px 20px;
+
+    }
+
+    .hero h1 {
+
+      font-size: 32px;
+
+    }
+
+    .hero p {
+
+      color: #555;
+
+    }
+
+    .btn {
+
+      display: inline-block;
+
+      margin-top: 20px;
+
+      padding: 15px 25px;
+
+      background: #1F7A63;
+
+      color: white;
+
+      border-radius: 10px;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+    }
+
+    .grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: 20px;
+
+    }
+
+    .card {
+
+      background: white;
+
+      padding: 20px;
+
+      border-radius: 12px;
+
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+    }
+
+    .section {
+
+      margin: 40px 0;
+
+    }
+
+    .center {
+
+      text-align: center;
+
+    }
+
+    .testimonial {
+
+      font-style: italic;
+
+      color: #555;
+
+    }
+
+    .highlight {
+
+      background: #e8f5f1;
+
+      padding: 30px;
+
+      border-radius: 12px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header class="container">
+
+  Ecotyal
+
+</header>
+
+<div class="container">
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h1>Solucionamos tu hogar sin que tengas que preocuparte</h1>
+
+    <p>Nos encargamos de todo: diagnóstico, presupuesto y ejecución con garantía</p>
+
+    <a href="https://wa.me/5492234376369" class="btn">
+
+      Pedir presupuesto
+
+    </a>
+
+    <p style="margin-top:10px; font-size:14px;">Respuesta en menos de 30 minutos</p>
+
+  </section>
+
+  <!-- SERVICIOS -->
+
+  <section class="section">
+
+    <h2>Servicios</h2>
+
+    <div class="grid">
+
+      <div class="card">Electricidad</div>
+
+      <div class="card">Plomería</div>
+
+      <div class="card">Reparaciones</div>
+
+      <div class="card">Mantenimiento</div>
+
+    </div>
+
+  </section>
+
+  <!-- DIFERENCIAL -->
+
+  <section class="section">
+
+    <h2>¿Por qué elegirnos?</h2>
+
+    <div class="grid">
+
+      <div class="card">Presupuestos reales</div>
+
+      <div class="card">Profesionales verificados</div>
+
+      <div class="card">Seguimiento del trabajo</div>
+
+      <div class="card">Garantía total</div>
+
+    </div>
+
+  </section>
+
+  <!-- GARANTÍA -->
+
+  <section class="section highlight center">
+
+    <h2>Garantía Ecotyal</h2>
+
+    <p>Si el trabajo no queda bien, nos hacemos cargo. Sin excusas.</p>
+
+  </section>
+
+  <!-- TESTIMONIOS -->
+
+  <section class="section">
+
+    <h2>Clientes</h2>
+
+    <div class="grid">
+
+      <div class="card testimonial">“Todo resuelto sin estrés.”</div>
+
+      <div class="card testimonial">“Cumplen y cobran lo justo.”</div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA FINAL -->
+
+  <section class="section center">
+
+    <h2>¿Necesitás ayuda?</h2>
+
+    <a href="https://wa.me/5492234376369" class="btn">
+
+      Escribir por WhatsApp
+
+    </a>
+
+  </section>
+
+</div>
+
+</body>
+
+</html>
