@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecotyal PRO</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#eef2f3;}
+header {background:#2e7d32; color:white; padding:25px; text-align:center;}
+section {padding:20px;}
+.card {background:white; padding:20px; border-radius:12px; margin-bottom:15px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+input, select, textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ccc;}
+button {background:#2e7d32; color:white; border:none; padding:12px; border-radius:8px; width:100%; font-size:16px;}
+.whatsapp {position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; text-decoration:none; font-size:20px;}
+</style>
+
+<script>
+function enviarFormulario(event){
+event.preventDefault();
+
+let nombre = document.getElementById("nombre").value;
+let servicio = document.getElementById("servicio").value;
+let zona = document.getElementById("zona").value;
+let detalle = document.getElementById("detalle").value;
+
+let texto = "Hola, soy " + nombre + ". Necesito un servicio de " + servicio + " en " + zona + ". Detalle: " + detalle;
+
+let url = "https://wa.me/5492234376369?text=" + encodeURIComponent(texto);
+
+window.open(url, "_blank");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>Ecotyal</h1>
+<p>Soluciones integrales para tu hogar</p>
+</header>
+
+<section>
+<div class="card">
+<h2>Solicitar servicio</h2>
+
+<form onsubmit="enviarFormulario(event)">
+<input type="text" id="nombre" placeholder="Tu nombre" required>
+
+<select id="servicio" required>
+<option value="">Selecciona servicio</option>
+<option>Electricidad</option>
+<option>Plomería</option>
+<option>Gas</option>
+<option>Jardinería</option>
+<option>Albañilería</option>
+<option>Decoración</option>
+</select>
+
+<input type="text" id="zona" placeholder="Tu zona/barrio" required>
+
+<textarea id="detalle" placeholder="Describe tu problema"></textarea>
+
+<button type="submit">Solicitar por WhatsApp</button>
+</form>
+
+</div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/5492234376369" target="_blank">💬</a>
+
+</body>
+</html>
