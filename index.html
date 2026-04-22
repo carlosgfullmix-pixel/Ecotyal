@@ -10,111 +10,105 @@
 <style>
 
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f7f9f8;
-  color: #222;
-}
-
-/* HEADER APP */
-.app-header {
-  background: white;
-  padding: 15px 20px;
-  font-weight: 600;
-  font-size: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#f4f7f6;
 }
 
 /* HERO */
 .hero {
-  padding: 30px 20px;
-  background: linear-gradient(135deg, #1F7A63, #2e9e83);
-  color: white;
-  border-radius: 0 0 25px 25px;
+  position:relative;
+  height:300px;
 }
 
-.hero h1 {
-  font-size: 26px;
-  margin: 0 0 10px;
+.hero img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.hero p {
-  font-size: 15px;
-  opacity: 0.9;
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
 }
 
-/* BOTÓN PRINCIPAL */
+.hero-content {
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  color:white;
+}
+
 .cta {
-  display: block;
-  margin-top: 20px;
-  padding: 15px;
-  background: white;
-  color: #1F7A63;
-  text-align: center;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
+  margin-top:10px;
+  display:block;
+  padding:14px;
+  background:#25D366;
+  text-align:center;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
 }
 
-/* CONTENEDOR */
+/* FORM */
 .container {
-  padding: 20px;
+  padding:20px;
 }
 
-/* BENEFICIOS */
-.benefits {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: -20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  font-size: 14px;
-  line-height: 1.6;
+.form-box {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-top:-30px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* GRID SERVICIOS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+select, textarea {
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
 }
 
-.card {
-  background: white;
-  padding: 18px;
-  border-radius: 15px;
-  text-align: center;
-  font-weight: 500;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+button {
+  width:100%;
+  margin-top:15px;
+  padding:15px;
+  background:#1F7A63;
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-weight:600;
 }
 
-/* SECCIONES */
-.section {
-  margin-top: 30px;
+/* RESEÑAS */
+.reviews {
+  margin-top:30px;
 }
 
-.section h2 {
-  margin-bottom: 15px;
-  font-size: 18px;
+.review {
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:10px;
 }
 
-/* BOTÓN FIJO */
-.floating-btn {
-  position: fixed;
-  bottom: 15px;
-  left: 15px;
-  right: 15px;
-  background: #25D366;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  border-radius: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+/* BOTÓN */
+.floating {
+  position:fixed;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  background:#25D366;
+  color:white;
+  text-align:center;
+  padding:15px;
+  border-radius:15px;
+  text-decoration:none;
 }
 
 </style>
@@ -122,72 +116,75 @@ body {
 
 <body>
 
-<div class="app-header">
-  Ecotyal
-</div>
-
-<!-- HERO APP -->
 <section class="hero">
-  <h1>Solucionamos tu problema hoy</h1>
-  <p>Sin vueltas, sin sorpresas y con garantía real.</p>
-
-  <a href="https://wa.me/5492234376369?text=Hola,%20quiero%20un%20presupuesto" class="cta">
-    Pedir presupuesto GRATIS
-  </a>
+  <img src="img/hero.png">
+  <div class="hero-content">
+    <h1>Pedí tu presupuesto en 1 minuto</h1>
+    <p>Respuesta rápida y sin vueltas</p>
+  </div>
 </section>
 
 <div class="container">
 
-  <!-- BENEFICIOS -->
-  <div class="benefits">
-    ✔ Más de 50 trabajos realizados <br>
-    ✔ Clientes satisfechos <br>
-    ✔ Garantía en todos los servicios <br>
-    ✔ Llegamos a tiempo <br>
-    ✔ Precio claro desde el inicio <br>
-    ✔ Trabajo garantizado
-  </div>
+<div class="form-box">
 
-  <!-- SERVICIOS -->
-  <div class="section">
-    <h2>Servicios</h2>
+<h3>¿Qué necesitás?</h3>
 
-    <div class="grid">
-      <div class="card">Construcción</div>
-      <div class="card">Jardinería</div>
-      <div class="card">Electricidad</div>
-      <div class="card">Plomería</div>
-      <div class="card">Reparaciones</div>
-      <div class="card">Mantenimiento</div>
-    </div>
-  </div>
+<select id="service">
+<option value="">Seleccionar servicio</option>
+<option>Construcción</option>
+<option>Jardinería</option>
+<option>Electricidad</option>
+<option>Plomería</option>
+<option>Reparaciones</option>
+</select>
 
-  <!-- POR QUÉ ELEGIRNOS -->
-  <div class="section">
-    <h2>¿Por qué elegirnos?</h2>
+<h3>Urgencia</h3>
 
-    <div class="grid">
-      <div class="card">Presupuestos reales</div>
-      <div class="card">Profesionales verificados</div>
-      <div class="card">Seguimiento del trabajo</div>
-      <div class="card">Garantía total</div>
-    </div>
-  </div>
+<select id="urgency">
+<option>Normal</option>
+<option>Urgente (hoy)</option>
+<option>Emergencia</option>
+</select>
 
-  <!-- GARANTÍA -->
-  <div class="section">
-    <div class="card">
-      <strong>Garantía Ecotyal</strong><br><br>
-      Si el trabajo no queda bien, nos hacemos cargo.
-    </div>
-  </div>
+<h3>Contanos el problema</h3>
+
+<textarea id="details" placeholder="Ej: pérdida de agua, instalación eléctrica..."></textarea>
+
+<button onclick="sendLead()">Solicitar presupuesto</button>
 
 </div>
 
-<!-- BOTÓN FIJO -->
-<a href="https://wa.me/5492234376369?text=Hola,%20quiero%20un%20presupuesto" class="floating-btn">
-  💬 Pedir presupuesto por WhatsApp
-</a>
+<div class="reviews">
+  <h3>Clientes reales</h3>
+
+  <div class="review">⭐⭐⭐⭐⭐ “Vinieron el mismo día, súper recomendados.”</div>
+  <div class="review">⭐⭐⭐⭐⭐ “Precio claro y trabajo impecable.”</div>
+  <div class="review">⭐⭐⭐⭐⭐ “Solucionaron todo en pocas horas.”</div>
+</div>
+
+</div>
+
+<a class="floating" href="#" onclick="sendLead()">💬 Enviar por WhatsApp</a>
+
+<script>
+
+function sendLead() {
+  let service = document.getElementById("service").value;
+  let urgency = document.getElementById("urgency").value;
+  let details = document.getElementById("details").value;
+
+  let msg = "Hola, quiero un presupuesto%0A";
+
+  if(service) msg += "Servicio: " + service + "%0A";
+  if(urgency) msg += "Urgencia: " + urgency + "%0A";
+  if(details) msg += "Detalle: " + details;
+
+  let url = "https://wa.me/5492234376369?text=" + msg;
+  window.open(url, "_blank");
+}
+
+</script>
 
 </body>
 </html>
