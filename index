@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ecotyal - Soluciones para el hogar</title>
+  <meta name="description" content="Servicios para el hogar sin complicaciones. Presupuestos reales y garantía.">
+</head>
+
+<body style="font-family: Arial; margin:0;">
+
+  <section style="padding:60px; text-align:center; background:#1F7A63; color:white;">
+    <h1>Soluciones para tu hogar, sin complicaciones</h1>
+    <p>Nos encargamos de todo: diagnóstico, presupuesto y ejecución con garantía.</p>
+    <button>Pedir presupuesto</button>
+  </section>
+
+  <section style="padding:40px;">
+    <h2>¿Qué hacemos?</h2>
+    <p>Electricidad, plomería, reparaciones y más.</p>
+  </section>
+
+  <section style="padding:40px; background:#F5F5F5;">
+    <h2>¿Por qué elegirnos?</h2>
+    <ul>
+      <li>Presupuestos reales</li>
+      <li>Profesionales verificados</li>
+      <li>Garantía</li>
+    </ul>
+  </section>
+
+  <section style="padding:40px; text-align:center;">
+    <h2>Contactanos</h2>
+    <button>WhatsApp</button>
+  </section>
+
+</body>
+</html>
