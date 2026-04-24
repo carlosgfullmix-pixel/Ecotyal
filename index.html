@@ -14,7 +14,7 @@ body{
 
 /* HERO */
 .hero{
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
   url('img/IMG_2941.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
@@ -43,20 +43,7 @@ body{
   border-radius:16px;
   padding:25px;
   margin:20px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.15);
-}
-
-/* PERFIL */
-.perfil img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  object-position:center top;
-  border-radius:50%;
-  display:block;
-  margin:20px auto;
-  border:4px solid white;
-  box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
 /* LISTAS */
@@ -64,6 +51,32 @@ body{
   text-align:left;
   max-width:420px;
   margin:auto;
+}
+
+/* PERFIL */
+.perfil{
+  text-align:center;
+}
+
+.perfil img{
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:50%;
+  display:block;
+  margin:20px auto 10px auto;
+  border:4px solid white;
+  box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  filter: brightness(1.15) contrast(1.05);
+}
+
+/* TESTIMONIOS */
+.testimonio{
+  background:#fafafa;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
 /* PROPIEDADES */
@@ -76,12 +89,12 @@ body{
   background:white;
   border-radius:12px;
   overflow:hidden;
-  box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
 .card img{
   width:100%;
-  filter:brightness(1.1);
+  filter: brightness(1.15) contrast(1.05);
 }
 
 .badge{
@@ -94,23 +107,10 @@ body{
 
 /* ESCAPADA */
 .escapada{
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url('img/IMG_2943.jpeg') center/cover no-repeat;
   color:white;
   padding:100px 20px;
-}
-
-/* WHATSAPP */
-.floating{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px 20px;
-  border-radius:50px;
-  font-weight:bold;
-  text-decoration:none;
 }
 </style>
 </head>
@@ -120,19 +120,17 @@ body{
 <!-- HERO -->
 <section class="hero">
   <h1>Evitá estafas al alquilar en Mar del Plata</h1>
+  <p>Te ayudo a encontrar y verificar tu alquiler para que reserves tranquilo</p>
 
-  <p>Yo reviso el alquiler por vos, hablo con el dueño y te acompaño hasta que estés seguro</p>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero ayuda con un alquiler">
-  Hablar conmigo
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero un alquiler seguro">
+  Quiero un alquiler seguro
   </a>
 </section>
 
 <!-- DIFERENCIAL -->
 <div class="box">
   <h2>No alquilás solo</h2>
-
-  <p>Trabajo personalmente revisando opciones reales todos los días.</p>
+  <p>Trabajo personalmente en Mar del Plata revisando opciones reales todos los días.</p>
 
   <div class="lista">
     <p>✔ Verifico que el alquiler exista</p>
@@ -142,10 +140,9 @@ body{
   </div>
 </div>
 
-<!-- REVISAR ALQUILER -->
+<!-- REVISAR -->
 <div class="box">
   <h2>¿Ya viste un alquiler?</h2>
-
   <p>Antes de reservar, te digo la verdad: si conviene o si es mejor evitarlo.</p>
 
   <div class="lista">
@@ -163,7 +160,6 @@ body{
 <!-- COMO FUNCIONA -->
 <div class="box">
   <h2>¿Cómo funciona?</h2>
-
   <p><strong>Sin pagos adelantados • Sin presión • Decidís tranquilo</strong></p>
 
   <div class="lista">
@@ -187,13 +183,36 @@ body{
   <h3>Carlos</h3>
   <p style="color:#777;">Asesor en alquileres seguros</p>
 
-  <p>Vas a tratar directamente conmigo, sin intermediarios.</p>
+  <p style="max-width:420px;margin:15px auto;">
+  Estoy en Mar del Plata y reviso personalmente cada opción antes de recomendarla.
+  </p>
+</div>
 
-  <p><strong>Estoy en Mar del Plata y reviso personalmente las opciones.</strong></p>
+<!-- TESTIMONIOS -->
+<div class="box">
+  <h2>Personas que ya evitaron problemas</h2>
 
-  <a class="btn" href="https://wa.me/5492234376369">
-  Hablar conmigo
-  </a>
+  <div style="max-width:500px;margin:auto;text-align:left;">
+
+    <div class="testimonio">
+      ⭐⭐⭐⭐⭐<br>
+      “Iba a reservar un depto que parecía perfecto, pero Carlos me dijo que algo no cerraba. Terminó siendo una estafa. Me salvó.”
+      <br><strong>— Martín, Buenos Aires</strong>
+    </div>
+
+    <div class="testimonio">
+      ⭐⭐⭐⭐⭐<br>
+      “Le pasé varias opciones y me dijo cuál convenía y cuál no. Me dio mucha tranquilidad antes de pagar.”
+      <br><strong>— Sofía, Córdoba</strong>
+    </div>
+
+    <div class="testimonio">
+      ⭐⭐⭐⭐⭐<br>
+      “No conocía Mar del Plata y tenía miedo de alquilar mal. Me acompañó en todo y salió perfecto.”
+      <br><strong>— Lucas, Rosario</strong>
+    </div>
+
+  </div>
 </div>
 
 <!-- PROPIEDADES -->
@@ -201,7 +220,6 @@ body{
   <h2>Opciones verificadas</h2>
 
   <div class="cards">
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
       <div style="padding:15px;">
@@ -211,7 +229,6 @@ body{
         <p style="font-size:13px;color:#777;">2 personas • Zona segura</p>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -224,11 +241,6 @@ body{
   Escribirme ahora
   </a>
 </section>
-
-<!-- BOTÓN -->
-<a class="floating" href="https://wa.me/5492234376369">
-WhatsApp
-</a>
 
 </body>
 </html>
