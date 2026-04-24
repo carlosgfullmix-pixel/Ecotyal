@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Asesor de Alquileres en Mar del Plata | Ecotyal</title>
+<title>Alquileres seguros en Mar del Plata | Ecotyal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -12,9 +12,8 @@ body {
   background: linear-gradient(to bottom, #f5f7fa, #f3e7d3);
 }
 
-/* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
   url('img/IMG_2941.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
@@ -28,8 +27,8 @@ body {
   border-radius:10px;
   text-decoration:none;
   display:inline-block;
-  margin-top:10px;
   font-weight:bold;
+  margin-top:10px;
 }
 
 .section {
@@ -37,7 +36,6 @@ body {
   text-align:center;
 }
 
-/* CARDS */
 .cards {
   display:grid;
   gap:20px;
@@ -48,38 +46,59 @@ body {
   border-radius:12px;
   overflow:hidden;
   box-shadow:0 6px 14px rgba(0,0,0,0.15);
-  transition:0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
 }
 
 .card img {
   width:100%;
-  filter: brightness(1.1) contrast(1.05);
+  filter: brightness(1.1);
 }
 
 .badge {
+  background:#e6f7ee;
+  color:#0a7f4f;
   padding:5px 10px;
   border-radius:6px;
   font-size:12px;
 }
 
-.disponible {
-  background:#e6f7ee;
-  color:#0a7f4f;
+/* PERFIL */
+.perfil {
+  background:white;
+  border-radius:16px;
+  margin:20px;
+  padding:30px 20px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+.perfil img {
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid white;
+  box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.verificado {
+  background:#d4f8e8;
+  color:#087f5b;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:13px;
+  display:inline-block;
+  margin-top:10px;
 }
 
 /* ESCAPADA */
 .escapada {
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
   url('img/IMG_2943.jpeg') center/cover no-repeat;
   color:white;
   padding:100px 20px;
 }
 
-/* BOTÓN WHATSAPP */
+/* WHATSAPP */
 .floating {
   position:fixed;
   bottom:20px;
@@ -90,10 +109,8 @@ body {
   border-radius:50px;
   font-weight:bold;
   text-decoration:none;
-  z-index:999;
 }
 
-/* ACTIVIDAD */
 #actividad {
   position:fixed;
   bottom:80px;
@@ -101,7 +118,6 @@ body {
   background:white;
   padding:10px 15px;
   border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
   font-size:13px;
   opacity:0;
   transition:0.5s;
@@ -115,110 +131,73 @@ body {
 <section class="hero">
   <h1>Evitá estafas en Mar del Plata</h1>
 
-  <p>Hablá conmigo y te ayudo personalmente a encontrar un alquiler real y seguro</p>
+  <p>Yo reviso el alquiler por vos, hablo con el dueño y te acompaño hasta que estés seguro</p>
 
   <p style="font-weight:bold;">
-  Estoy respondiendo consultas ahora mismo
+  Estoy atendiendo consultas ahora mismo
   </p>
 
   <p id="contador"></p>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero que me ayudes a encontrar un alquiler seguro">
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero ayuda con un alquiler">
   Hablar conmigo
   </a>
 </section>
 
 <!-- DIFERENCIAL -->
 <section class="section">
-  <h2>No alquilás solo. Te acompaño</h2>
+  <h2>No alquilás solo</h2>
 
   <p style="max-width:500px;margin:auto;">
   Trabajo personalmente en Mar del Plata revisando opciones reales todos los días.
   </p>
 
   <div style="margin-top:20px;text-align:left;max-width:400px;margin:auto;">
-    <p>✔ Opciones reales</p>
-    <p>✔ Verificación del lugar</p>
-    <p>✔ Contacto con el dueño</p>
-    <p>✔ Acompañamiento completo</p>
+    <p>✔ Verifico que el alquiler sea real</p>
+    <p>✔ Hablo directamente con el dueño</p>
+    <p>✔ Te acompaño en todo el proceso</p>
   </div>
 </section>
 
-<!-- YA VISTE -->
-<section class="section" style="background:white; border-radius:12px; margin:20px;">
-  <h2>¿Ya viste un alquiler que te interesa?</h2>
-
-  <p style="max-width:500px;margin:auto;">
-  Te ayudo a revisarlo antes de que tomes una decisión.
-  </p>
-
-  <div style="margin-top:20px;text-align:left;max-width:400px;margin:auto;">
-    <p>✔ Revisamos si es real</p>
-    <p>✔ Analizamos el precio</p>
-    <p>✔ Hablamos con el dueño</p>
-  </div>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero que revises un alquiler">
-  Revisar alquiler
-  </a>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section class="section" style="background:white; border-radius:12px; margin:20px;">
-  <h2>¿Cómo funciona?</h2>
-
-  <p style="font-weight:bold;">Sin pagos adelantados • Sin presión • Decidís tranquilo</p>
-
-  <div style="margin-top:25px;text-align:left;max-width:500px;margin:auto;">
-    <p><strong>1.</strong> Me contás qué buscás</p>
-    <p><strong>2.</strong> Te paso opciones reales</p>
-    <p><strong>3.</strong> Verifico el alquiler</p>
-    <p><strong>4.</strong> Te ayudo a reservar</p>
-  </div>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero empezar">
-  Empezar ahora
-  </a>
-</section>
-
-<!-- TU FOTO -->
-<section class="section" style="background:white; border-radius:12px; margin:20px;">
+<!-- PERFIL -->
+<section class="perfil">
   <h2>¿Quién te va a ayudar?</h2>
 
   <img src="img/IMG_0131.jpeg">
-    width:130px;
-    height:130px;
-    object-fit:cover;
-    border-radius:50%;
-    box-shadow:0 6px 14px rgba(0,0,0,0.25);
-  ">
 
   <h3>Carlos</h3>
+
+  <div class="verificado">✔ Perfil verificado</div>
+
   <p style="color:#777;">Asesor en alquileres seguros</p>
 
   <p style="max-width:500px;margin:auto;">
   Te acompaño personalmente para que encuentres un alquiler seguro sin riesgos.
   </p>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos">
+  <p style="font-weight:bold;">
+  Vas a tratar directamente conmigo, sin intermediarios
+  </p>
+
+  <a class="btn" href="https://wa.me/5492234376369">
   Hablar conmigo
   </a>
 </section>
 
-<!-- OPCIONES -->
+<!-- PROPIEDADES -->
 <section class="section">
-  <h2>Opciones verificadas para vos</h2>
+  <h2>Opciones verificadas</h2>
 
   <div class="cards">
     <div class="card">
       <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
       <div style="padding:15px;">
-        <span class="badge disponible">✔ Verificado por nosotros</span>
+        <span class="badge">✔ Verificado</span>
         <h3>Depto en Centro</h3>
         <p>$40.000 por noche</p>
 
         <p style="font-size:13px;color:#777;">
-        Zona: Centro • 2 personas • A 3 cuadras del mar
+        2 personas • 3 cuadras del mar • Zona segura
         </p>
       </div>
     </div>
@@ -227,13 +206,17 @@ body {
 
 <!-- ESCAPADA -->
 <section class="escapada">
-  <h2>Disfrutá Mar del Plata sin preocupaciones</h2>
+  <h2>Disfrutá sin preocuparte</h2>
   <p>Yo me encargo de todo</p>
-  <a class="btn" href="https://wa.me/5492234376369">Hablar ahora</a>
+  <a class="btn" href="https://wa.me/5492234376369">
+  Escribirme ahora
+  </a>
 </section>
 
 <!-- BOTÓN -->
-<a class="floating" href="https://wa.me/5492234376369">WhatsApp</a>
+<a class="floating" href="https://wa.me/5492234376369">
+WhatsApp
+</a>
 
 <div id="actividad"></div>
 
