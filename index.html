@@ -21,7 +21,6 @@ body {
   padding:120px 20px;
 }
 
-/* BOTÓN */
 .btn {
   background:#25D366;
   color:white;
@@ -33,28 +32,6 @@ body {
   font-weight:bold;
 }
 
-/* BUSCADOR */
-.selector {
-  position: sticky;
-  top:10px;
-  background:white;
-  padding:15px;
-  border-radius:12px;
-  max-width:400px;
-  margin:auto;
-  margin-top:-40px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.2);
-  z-index:10;
-}
-
-.selector select, .selector button {
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border-radius:8px;
-}
-
-/* SECCIONES */
 .section {
   padding:40px 20px;
   text-align:center;
@@ -78,13 +55,11 @@ body {
   transform: translateY(-10px);
 }
 
-/* 🔆 IMÁGENES MÁS LUMINOSAS */
 .card img {
   width:100%;
   filter: brightness(1.1) contrast(1.05);
 }
 
-/* BADGE */
 .badge {
   padding:5px 10px;
   border-radius:6px;
@@ -104,7 +79,7 @@ body {
   padding:100px 20px;
 }
 
-/* BOTÓN FLOTANTE */
+/* BOTÓN WHATSAPP */
 .floating {
   position:fixed;
   bottom:20px;
@@ -117,6 +92,20 @@ body {
   text-decoration:none;
   z-index:999;
 }
+
+/* ACTIVIDAD */
+#actividad {
+  position:fixed;
+  bottom:80px;
+  left:20px;
+  background:white;
+  padding:10px 15px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  font-size:13px;
+  opacity:0;
+  transition:0.5s;
+}
 </style>
 </head>
 
@@ -125,26 +114,25 @@ body {
 <!-- HERO -->
 <section class="hero">
   <h1>Alquileres seguros en Mar del Plata sin estafas</h1>
-
-  <p>Te ayudamos personalmente a encontrar y verificar tu alquiler</p>
+  <p>Hablá conmigo y te ayudo a encontrar y verificar tu alquiler</p>
 
   <p style="color:#ffdede;font-weight:bold;">
-  🔥 Alta demanda - Consultá ahora
+  🔥 Alta demanda ahora
   </p>
 
   <p id="contador"></p>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero ayuda para encontrar un alquiler seguro">
-  Consultar ahora
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero que me ayudes a encontrar un alquiler seguro">
+  Hablar conmigo
   </a>
 </section>
 
 <!-- DIFERENCIAL -->
 <section class="section">
-  <h2>No alquilás solo. Te acompañamos</h2>
+  <h2>No alquilás solo. Te acompaño</h2>
 
   <p style="max-width:500px;margin:auto;">
-  Evitá estafas y problemas. Nosotros revisamos, hablamos con el dueño y te acompañamos hasta que estés seguro.
+  Evitá estafas. Yo reviso, hablo con el dueño y te acompaño hasta que estés seguro.
   </p>
 
   <div style="margin-top:20px;text-align:left;max-width:400px;margin:auto;">
@@ -155,12 +143,12 @@ body {
   </div>
 </section>
 
-<!-- 🔥 NUEVA SECCIÓN -->
+<!-- YA VISTE -->
 <section class="section" style="background:white; border-radius:12px; margin:20px;">
   <h2>¿Ya viste un alquiler que te interesa?</h2>
 
   <p style="max-width:500px;margin:auto;">
-  Te ayudamos a revisarlo antes de que tomes una decisión.
+  Te ayudo a revisarlo antes de que tomes una decisión.
   </p>
 
   <div style="margin-top:20px;text-align:left;max-width:400px;margin:auto;">
@@ -174,37 +162,60 @@ body {
   </a>
 </section>
 
-<!-- BUSCADOR -->
-<div class="selector">
-  <h3>Buscá tu estadía</h3>
+<!-- COMO FUNCIONA -->
+<section class="section" style="background:white; border-radius:12px; margin:20px;">
+  <h2>¿Cómo funciona?</h2>
 
-  <select id="tipo">
-    <option value="departamento">Departamento</option>
-    <option value="casa">Casa</option>
-  </select>
+  <p style="font-weight:bold;">Sin pagos adelantados • Sin presión • Decidís tranquilo</p>
 
-  <select id="personas">
-    <option value="2">2 personas</option>
-    <option value="4">4 personas</option>
-    <option value="6">6+ personas</option>
-  </select>
+  <div style="margin-top:25px;text-align:left;max-width:500px;margin:auto;">
+    <p><strong>1.</strong> Me contás qué buscás</p>
+    <p><strong>2.</strong> Te paso opciones reales</p>
+    <p><strong>3.</strong> Verifico el alquiler</p>
+    <p><strong>4.</strong> Te ayudo a reservar</p>
+  </div>
 
-  <button onclick="buscar()">Consultar ahora</button>
-</div>
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero empezar">
+  Empezar ahora
+  </a>
+</section>
 
-<!-- PROPIEDADES -->
+<!-- TU FOTO -->
+<section class="section" style="background:white; border-radius:12px; margin:20px;">
+  <h2>¿Quién te va a ayudar?</h2>
+
+  <img src="img/carlos.jpg" style="
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:50%;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  ">
+
+  <h3>Carlos</h3>
+  <p style="color:#777;">Asesor en alquileres seguros</p>
+
+  <p style="max-width:500px;margin:auto;">
+  Te acompaño personalmente para que encuentres un alquiler seguro sin riesgos.
+  </p>
+
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos">
+  Hablar conmigo
+  </a>
+</section>
+
+<!-- OPCIONES -->
 <section class="section">
-  <h2>Opciones verificadas</h2>
+  <h2>Opciones verificadas para vos</h2>
 
   <div class="cards">
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-      <div class="card-content">
-        <span class="badge disponible">Verificado</span>
+      <div style="padding:15px;">
+        <span class="badge disponible">✔ Verificado por nosotros</span>
         <h3>Depto en Centro</h3>
         <p>$40.000 por noche</p>
-        <a class="btn" href="#">Consultar disponibilidad</a>
       </div>
     </div>
 
@@ -214,42 +225,42 @@ body {
 <!-- ESCAPADA -->
 <section class="escapada">
   <h2>Disfrutá Mar del Plata sin preocupaciones</h2>
-  <p>Nosotros nos encargamos de todo</p>
-  <a class="btn" href="#">Hablar ahora</a>
+  <p>Yo me encargo de todo</p>
+  <a class="btn" href="https://wa.me/5492234376369">Hablar ahora</a>
 </section>
 
 <!-- BOTÓN -->
 <a class="floating" href="https://wa.me/5492234376369">WhatsApp</a>
 
-<!-- CONTADOR PRO -->
+<div id="actividad"></div>
+
 <script>
-let num = Math.floor(Math.random() * 4) + 2;
-
-function actualizar() {
-  let cambio = Math.floor(Math.random() * 3) - 1;
-  num += cambio;
-
-  if (num < 1) num = 1;
-  if (num > 8) num = 8;
-
+// contador
+let num = Math.floor(Math.random()*4)+2;
+function loop(){
+  num += Math.floor(Math.random()*3)-1;
+  if(num<1) num=1;
+  if(num>8) num=8;
   document.getElementById("contador").innerText =
-  "🔥 " + num + " personas viendo opciones ahora";
+  "🔥 " + num + " personas consultando ahora";
+  setTimeout(loop, Math.random()*7000+5000);
 }
-
-function loop() {
-  actualizar();
-  let t = Math.random() * 7000 + 5000;
-  setTimeout(loop, t);
-}
-
 loop();
 
-function buscar() {
-  let tipo = document.getElementById("tipo").value;
-  let personas = document.getElementById("personas").value;
-  let mensaje = "Hola quiero ayuda para encontrar un " + tipo + " para " + personas + " personas";
-  window.open("https://wa.me/5492234376369?text=" + encodeURIComponent(mensaje));
+// actividad
+const nombres = ["Juan","Sofía","Lucas","María"];
+const acciones = ["consultó","está viendo opciones","preguntó por disponibilidad"];
+
+function actividad(){
+  let a = document.getElementById("actividad");
+  a.innerText = nombres[Math.floor(Math.random()*nombres.length)] + " " +
+  acciones[Math.floor(Math.random()*acciones.length)];
+
+  a.style.opacity=1;
+  setTimeout(()=>{a.style.opacity=0;},4000);
+  setTimeout(actividad, Math.random()*10000+8000);
 }
+actividad();
 </script>
 
 </body>
