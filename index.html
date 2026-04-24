@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -14,21 +16,13 @@ body {
 
 .hero {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+  url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21') center/cover no-repeat;
   color: white;
   text-align: center;
   padding: 100px 20px;
 }
 
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
+.hero h1 { font-size: 32px; }
 
 .btn {
   background: #25D366;
@@ -40,9 +34,7 @@ body {
   display: inline-block;
 }
 
-.section {
-  padding: 30px 20px;
-}
+.section { padding: 30px 20px; }
 
 .selector {
   background: white;
@@ -59,7 +51,6 @@ body {
   padding: 12px;
   margin: 10px 0;
   border-radius: 8px;
-  border: 1px solid #ccc;
 }
 
 .cards {
@@ -74,17 +65,11 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.card img {
-  width: 100%;
-}
+.card img { width: 100%; }
 
-.card-content {
-  padding: 15px;
-}
+.card-content { padding: 15px; }
 
 .badge {
-  background: #e6f7ee;
-  color: #0a7f4f;
   padding: 5px 10px;
   border-radius: 6px;
   font-size: 12px;
@@ -92,17 +77,26 @@ body {
   margin-bottom: 8px;
 }
 
-.trust {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.disponible { background:#e6f7ee; color:#0a7f4f; }
+.reservado { background:#fdecea; color:#b71c1c; }
 
 .gallery img {
   width: 100%;
   border-radius: 12px;
   margin-bottom: 10px;
+}
+
+.testimonial {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.trust {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
 }
 
 .footer {
@@ -118,7 +112,7 @@ body {
 <section class="hero">
   <h1>Encontrá tu alquiler en Mar del Plata sin riesgos</h1>
   <p>Opciones verificadas • Atención real • Sin sorpresas</p>
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20ver%20alquileres">Ver opciones</a>
+  <a class="btn" href="#propiedades">Ver opciones</a>
 </section>
 
 <!-- SELECTOR -->
@@ -139,16 +133,16 @@ body {
   <button onclick="buscar()">Ver opciones</button>
 </div>
 
-<!-- GALERÍA EMOCIONAL -->
+<!-- GALERÍA -->
 <section class="section gallery">
-  <h2>Viví la experiencia</h2>
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+  <h2>Viví Mar del Plata</h2>
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
   <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
   <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e">
 </section>
 
 <!-- PROPIEDADES -->
-<section class="section">
+<section class="section" id="propiedades">
   <h2>Alquileres disponibles</h2>
 
   <div class="cards">
@@ -156,24 +150,42 @@ body {
     <div class="card">
       <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
       <div class="card-content">
-        <span class="badge">Verificado</span>
+        <span class="badge disponible">Disponible</span>
         <h3>Depto en Centro</h3>
         <p>$40.000 por noche</p>
-        <a href="https://wa.me/5492234376369?text=Hola%20quiero%20info%20del%20depto%20en%20Centro">Consultar</a>
+        <a href="https://wa.me/5492234376369?text=Quiero%20el%20depto%20en%20Centro">Consultar</a>
       </div>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
       <div class="card-content">
-        <span class="badge">Verificado</span>
+        <span class="badge reservado">Reservado</span>
         <h3>Frente al mar</h3>
         <p>$65.000 por noche</p>
-        <a href="https://wa.me/5492234376369?text=Hola%20quiero%20info%20del%20depto%20frente%20al%20mar">Consultar</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+      <div class="card-content">
+        <span class="badge disponible">Disponible</span>
+        <h3>Casa para 6 personas</h3>
+        <p>$80.000 por noche</p>
+        <a href="https://wa.me/5492234376369?text=Quiero%20la%20casa%20para%206">Consultar</a>
       </div>
     </div>
 
   </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section">
+  <h2>Clientes felices</h2>
+
+  <div class="testimonial">“Todo perfecto, sin sorpresas. Volvería a reservar.”</div>
+  <div class="testimonial">“Me ayudaron en todo, súper confiable.”</div>
+
 </section>
 
 <!-- CONFIANZA -->
@@ -183,25 +195,22 @@ body {
     <p>✔ Propiedades verificadas</p>
     <p>✔ Evitamos estafas</p>
     <p>✔ Atención real por WhatsApp</p>
-    <p>✔ Te acompañamos hasta que ingreses</p>
+    <p>✔ Te acompañamos en todo el proceso</p>
   </div>
 </section>
 
 <!-- CTA FINAL -->
 <section class="footer">
   <h2>¿Listo para tu escapada?</h2>
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20mi%20alquiler">Escribinos ahora</a>
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20mi%20alquiler">Escribinos</a>
 </section>
 
 <script>
 function buscar() {
   var tipo = document.getElementById("tipo").value;
   var personas = document.getElementById("personas").value;
-
   var mensaje = "Hola, busco " + tipo + " para " + personas + " personas en Mar del Plata";
-  var url = "https://wa.me/5492234376369?text=" + encodeURIComponent(mensaje);
-
-  window.open(url, "_blank");
+  window.open("https://wa.me/5492234376369?text=" + encodeURIComponent(mensaje));
 }
 </script>
 
