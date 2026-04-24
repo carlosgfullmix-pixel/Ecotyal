@@ -12,20 +12,19 @@ body{
   background: linear-gradient(to bottom,#f5f7fa,#f3e7d3);
 }
 
-/* HERO (imagen ahora la del lobo) */
+/* HERO */
 .hero{
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
   url('img/IMG_2943.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
   padding:120px 20px;
 }
 
-/* BOTONES */
 .btn{
   background:#25D366;
   color:white;
-  padding:15px 25px;
+  padding:14px 24px;
   border-radius:10px;
   text-decoration:none;
   display:inline-block;
@@ -46,7 +45,6 @@ body{
   box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
-/* LISTA */
 .lista{
   text-align:left;
   max-width:420px;
@@ -62,7 +60,7 @@ body{
   border-radius:50%;
   display:block;
   margin:20px auto;
-  filter: brightness(1.2) contrast(1.1);
+  filter: brightness(1.15) contrast(1.05);
 }
 
 /* TESTIMONIOS */
@@ -88,7 +86,7 @@ body{
 
 .card img{
   width:100%;
-  filter: brightness(1.5) contrast(1.1);
+  filter: brightness(1.3) contrast(1.05);
 }
 
 .badge{
@@ -99,7 +97,7 @@ body{
   font-size:12px;
 }
 
-/* ESCAPADA (ahora la costa) */
+/* CIERRE */
 .escapada{
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
   url('img/IMG_2941.jpeg') center/cover no-repeat;
@@ -113,20 +111,35 @@ body{
 
 <!-- HERO -->
 <section class="hero">
+  <p style="opacity:0.8;font-size:14px;">
+  Ecotyal · Asesor en alquileres seguros
+  </p>
+
   <h1>No pierdas plata con un alquiler falso en Mar del Plata</h1>
-  <p>Reviso el alquiler antes de que pagues y te digo si es seguro</p>
+
+  <p>
+  En Ecotyal reviso el alquiler, hablo con el dueño y te digo si es seguro antes de que pagues.
+  </p>
 </section>
 
 <!-- IMPACTO -->
 <div class="box">
   <h2>Lo que nadie te dice</h2>
-  <p>Muchos alquileres parecen reales… pero no lo son.</p>
-  <p><strong>Yo reviso todo antes de que pongas un peso.</strong></p>
+
+  <p>
+  Muchos alquileres que parecen perfectos no existen o tienen problemas.
+  </p>
+
+  <p style="font-weight:bold;">
+  Mi trabajo es que no caigas en uno.
+  </p>
 </div>
 
 <!-- REVISAR -->
 <div class="box">
   <h2>¿Ya viste un alquiler?</h2>
+
+  <p>Pasámelo antes de pagar. Lo reviso y te digo si es seguro.</p>
 
   <div class="lista">
     <p>✔ Verifico si existe</p>
@@ -138,11 +151,46 @@ body{
   <a class="btn" href="https://wa.me/5492234376369">Quiero que lo revises</a>
 </div>
 
+<!-- COMO FUNCIONA -->
+<div class="box">
+  <h2>¿Cómo funciona?</h2>
+
+  <div class="lista">
+    <p>1. Me contás qué buscás</p>
+    <p>2. Te paso opciones reales</p>
+    <p>3. Verifico el alquiler</p>
+    <p>4. Te acompaño a reservar</p>
+  </div>
+</div>
+
+<!-- PAGOS -->
+<div class="box">
+  <h2>Pagá con tranquilidad</h2>
+
+  <p>
+  También te acompaño en la forma de pago para que sea segura.
+  </p>
+
+  <div class="lista">
+    <p>✔ Transferencias verificadas</p>
+    <p>✔ Opciones con tarjeta</p>
+    <p>✔ Mercado Pago o PayPal</p>
+  </div>
+
+  <p style="font-weight:bold;">
+  Nunca te dejo solo en ese paso.
+  </p>
+</div>
+
 <!-- PERFIL -->
 <div class="box perfil">
-  <h2>Carlos</h2>
+  <h2>Carlos — Ecotyal</h2>
+
   <img src="img/IMG_0131.jpeg">
-  <p>Estoy en Mar del Plata y reviso cada alquiler personalmente.</p>
+
+  <p>
+  Estoy en Mar del Plata y reviso personalmente cada alquiler antes de recomendarlo.
+  </p>
 
   <a class="btn" href="https://wa.me/5492234376369">WhatsApp</a>
   <a class="btn btn-mail" href="mailto:ecotyal@gmail.com">Enviar mail</a>
@@ -152,47 +200,71 @@ body{
 <div class="box">
   <h2>Casos reales</h2>
 
-  <div class="testimonio">“Me iban a estafar. Carlos lo detectó.”</div>
-  <div class="testimonio">“Me ayudó a elegir bien y evitar problemas.”</div>
-  <div class="testimonio">“Todo salió perfecto gracias a su ayuda.”</div>
-</div>
+  <div class="testimonio">
+  “Me pedían transferencia. Carlos lo revisó y era una estafa.”
+  </div>
 
-<!-- PROPIEDADES -->
-<div class="box">
-  <h2>Opciones verificadas</h2>
+  <div class="testimonio">
+  “Me dijo que no alquile y tenía razón.”
+  </div>
 
-  <div class="cards">
-
-    <!-- REPETIR -->
-    <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Centro</h3><p>$40.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Playa Grande</h3><p>$65.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Casa 6 personas</h3><p>$80.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Zona Güemes</h3><p>$55.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>2 ambientes</h3><p>$45.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Vista al mar</h3><p>$70.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Monoambiente</h3><p>$35.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Chalet</h3><p>$90.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Familiar</h3><p>$60.000</p></div></div>
-
-    <div class="card"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb"><div style="padding:15px;"><span class="badge">✔ Verificado</span><h3>Premium</h3><p>$120.000</p></div></div>
-
+  <div class="testimonio">
+  “Todo salió perfecto gracias a su ayuda.”
   </div>
 </div>
+
+<!-- PROPIEDADES DINÁMICAS -->
+<div class="box">
+  <h2>Opciones verificadas</h2>
+  <div id="propiedades" class="cards"></div>
+</div>
+
+<script>
+const url = "PEGÁ_ACÁ_TU_CSV";
+
+fetch(url)
+.then(res => res.text())
+.then(data => {
+  const filas = data.split("\n").slice(1);
+  let html = "";
+
+  filas.forEach(fila => {
+    const [nombre, precio, imagen, estado] = fila.split(",");
+    if(!nombre) return;
+
+    html += `
+    <div class="card">
+      <img src="${imagen}">
+      <div style="padding:15px;">
+        <span class="badge">${estado}</span>
+        <h3>${nombre}</h3>
+        <p>${precio}</p>
+      </div>
+    </div>`;
+  });
+
+  document.getElementById("propiedades").innerHTML = html;
+});
+</script>
 
 <!-- CIERRE -->
 <section class="escapada">
   <h2>No arriesgues tu plata</h2>
-  <p>Antes de reservar, hablá conmigo</p>
-  <a class="btn" href="https://wa.me/5492234376369">Escribirme</a>
+
+  <p>Antes de reservar, hablá conmigo y lo revisamos juntos</p>
+
+  <a class="btn" href="https://wa.me/5492234376369">
+  Escribirme
+  </a>
 </section>
+
+<!-- FOOTER -->
+<footer style="text-align:center;padding:30px;color:#666;">
+  <p><strong>Ecotyal</strong></p>
+  <p>Asesoramiento en alquileres seguros</p>
+  <p>📍 Mar del Plata</p>
+  <p>📧 ecotyal@gmail.com</p>
+</footer>
 
 </body>
 </html>
