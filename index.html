@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Ecotyal | Vacaciones seguras en la costa</title>
+<title>Ecotyal | Vacaciones seguras en la costa atlántica</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -12,18 +12,19 @@ body{
   background: linear-gradient(to bottom,#f5f7fa,#f3e7d3);
 }
 
+/* HERO */
 .hero{
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
   url('img/IMG_2943.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
-  padding:110px 20px;
+  padding:100px 20px;
 }
 
 .btn{
   background:#25D366;
   color:white;
-  padding:14px 24px;
+  padding:14px 22px;
   border-radius:12px;
   text-decoration:none;
   display:inline-block;
@@ -36,6 +37,7 @@ body{
   color:#333;
 }
 
+/* BLOQUES */
 .box{
   background:white;
   border-radius:16px;
@@ -50,14 +52,22 @@ body{
   margin:20px auto;
 }
 
-.perfil img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  display:block;
-  margin:20px auto;
+/* PERFIL SIMPLE PRO */
+.perfil-pro{
+  text-align:center;
 }
 
+.perfil-pro img{
+  width:160px;
+  height:160px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:20px;
+  display:block;
+  margin:0 auto 15px;
+}
+
+/* TESTIMONIOS */
 .testimonio{
   background:#fafafa;
   padding:15px;
@@ -65,11 +75,39 @@ body{
   margin-bottom:10px;
 }
 
-.zonas{
+/* CARDS */
+.cards{
+  display:grid;
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+
+.card img{
+  width:100%;
+  filter: brightness(1.2);
+}
+
+.badge{
+  background:#e6f7ee;
+  color:#0a7f4f;
+  padding:5px 10px;
+  border-radius:6px;
+  font-size:12px;
+}
+
+/* CIERRE */
+.cierre{
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('img/IMG_2941.jpeg') center/cover no-repeat;
+  color:white;
   text-align:center;
-  margin-top:10px;
-  font-size:14px;
-  opacity:0.8;
+  padding:80px 20px;
 }
 </style>
 </head>
@@ -83,51 +121,38 @@ body{
   <h1>Vacaciones seguras de principio a fin</h1>
 
   <p>
-  Te ayudo a encontrar, verificar y organizar todo tu viaje sin que pierdas plata ni tiempo.
+  Te ayudo a encontrar, verificar y organizar todo tu viaje sin perder plata ni tiempo.
   </p>
 
-  <div class="zonas">
-    Mar del Plata · Santa Clara · Villa Gesell · Miramar
-  </div>
+  <p style="font-size:14px;opacity:0.8;">
+  Mar del Plata · Santa Clara · Villa Gesell · Miramar
+  </p>
 
   <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero organizar mis vacaciones">
-  👉 Organizar vacaciones
+  ✈️ Organizar vacaciones
   </a>
 
   <a class="btn btn-alt" href="https://wa.me/5492234376369?text=Hola quiero que revises un alquiler">
-  Revisar alquiler
+  🔍 Revisar alquiler
   </a>
 </section>
 
-<!-- PERFIL PRIMERO -->
+<!-- PERFIL -->
 <div class="box perfil-pro">
+  <img src="img/IMG_0131.jpeg">
 
-  <div class="perfil-contenido">
-
-    <img src="img/IMG_0131.jpeg">
-
-    <div class="perfil-texto">
-      <h2>Carlos — Ecotyal</h2>
-
-      <p>
-      Estoy en la costa y me encargo de que no caigas en estafas y tomes una buena decisión.
-      </p>
-
-      <p>
-      No vendo alquileres: te ayudo a elegir bien y a que tus vacaciones salgan como esperás.
-      </p>
-    </div>
-
-  </div>
-
-</div>
+  <h2>Carlos — Ecotyal</h2>
 
   <p>
   Estoy en la costa y me encargo de que no caigas en estafas y tomes una buena decisión.
   </p>
+
+  <p>
+  No vendo alquileres: te ayudo a elegir bien y a que tus vacaciones salgan como esperás.
+  </p>
 </div>
 
-<!-- SERVICIO COMPLETO -->
+<!-- SERVICIO -->
 <div class="box">
   <h2>¿Qué hago por vos?</h2>
 
@@ -140,7 +165,7 @@ body{
   </div>
 </div>
 
-<!-- ACCIONES CLARAS -->
+<!-- ACCIONES -->
 <div class="box" style="text-align:center;">
   <h2>Elegí cómo querés avanzar</h2>
 
@@ -171,12 +196,32 @@ body{
   <h2>Opciones verificadas</h2>
 
   <div class="cards">
-    <!-- dejá tus cards como están -->
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+      <div style="padding:15px;">
+        <span class="badge">Disponible</span>
+        <h3>Depto Centro</h3>
+        <p>$40.000</p>
+        <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero el depto en Centro">Consultar</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
+      <div style="padding:15px;">
+        <span class="badge">Disponible</span>
+        <h3>Playa Grande</h3>
+        <p>$65.000</p>
+        <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero Playa Grande">Consultar</a>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <!-- CIERRE -->
-<section class="hero" style="padding:80px 20px;">
+<section class="cierre">
   <h2>No arriesgues tus vacaciones</h2>
 
   <p>
@@ -188,6 +233,7 @@ body{
   </a>
 </section>
 
+<!-- FOOTER -->
 <footer style="text-align:center;padding:30px;color:#666;">
   <p><strong>Ecotyal</strong></p>
   <p>Vacaciones seguras en la costa atlántica</p>
