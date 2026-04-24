@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Ecotyal - Alquileres seguros en Mar del Plata</title>
+<title>Ecotyal - Alquileres en Mar del Plata</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -13,10 +13,11 @@ body {
 }
 
 .hero {
-  background: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
 }
 
 .hero h1 {
@@ -36,10 +37,29 @@ body {
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
+  display: inline-block;
 }
 
 .section {
   padding: 30px 20px;
+}
+
+.selector {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: -40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.selector select, .selector button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .cards {
@@ -73,10 +93,16 @@ body {
 }
 
 .trust {
-  background: #ffffff;
-  border-radius: 12px;
+  background: white;
   padding: 20px;
+  border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -90,9 +116,35 @@ body {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Viví Mar del Plata sin complicaciones</h1>
-  <p>Alquileres verificados • Atención rápida • Sin sorpresas</p>
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20ver%20alquileres">Ver opciones por WhatsApp</a>
+  <h1>Encontrá tu alquiler en Mar del Plata sin riesgos</h1>
+  <p>Opciones verificadas • Atención real • Sin sorpresas</p>
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20ver%20alquileres">Ver opciones</a>
+</section>
+
+<!-- SELECTOR -->
+<div class="selector">
+  <h3>Buscá rápido</h3>
+
+  <select id="tipo">
+    <option value="departamento">Departamento</option>
+    <option value="casa">Casa</option>
+  </select>
+
+  <select id="personas">
+    <option value="2">2 personas</option>
+    <option value="4">4 personas</option>
+    <option value="6">6+ personas</option>
+  </select>
+
+  <button onclick="buscar()">Ver opciones</button>
+</div>
+
+<!-- GALERÍA EMOCIONAL -->
+<section class="section gallery">
+  <h2>Viví la experiencia</h2>
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+  <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
+  <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e">
 </section>
 
 <!-- PROPIEDADES -->
@@ -129,16 +181,10 @@ body {
   <div class="trust">
     <h2>Reservá con tranquilidad</h2>
     <p>✔ Propiedades verificadas</p>
-    <p>✔ Atención personalizada por WhatsApp</p>
-    <p>✔ Sin pagos dudosos ni intermediarios desconocidos</p>
-    <p>✔ Te acompañamos en todo el proceso</p>
+    <p>✔ Evitamos estafas</p>
+    <p>✔ Atención real por WhatsApp</p>
+    <p>✔ Te acompañamos hasta que ingreses</p>
   </div>
-</section>
-
-<!-- VELOCIDAD -->
-<section class="section">
-  <h2>Reservá en minutos</h2>
-  <p>Escribís → Recibís opciones → Elegís → Reservás</p>
 </section>
 
 <!-- CTA FINAL -->
@@ -146,6 +192,18 @@ body {
   <h2>¿Listo para tu escapada?</h2>
   <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20mi%20alquiler">Escribinos ahora</a>
 </section>
+
+<script>
+function buscar() {
+  var tipo = document.getElementById("tipo").value;
+  var personas = document.getElementById("personas").value;
+
+  var mensaje = "Hola, busco " + tipo + " para " + personas + " personas en Mar del Plata";
+  var url = "https://wa.me/5492234376369?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
