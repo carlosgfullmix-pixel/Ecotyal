@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Ecotyal - Alquileres en Mar del Plata</title>
+<title>Alquileres en Mar del Plata | Ecotyal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -15,23 +15,28 @@ body {
 }
 
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-  url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url('TU-IMAGEN-COSTA.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 110px 20px;
 }
 
-.hero h1 { font-size: 32px; }
+.hero h1 { font-size: 34px; }
 
 .btn {
   background: #25D366;
   color: white;
-  padding: 15px 25px;
+  padding: 16px 28px;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
   display: inline-block;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #1ebe5d;
 }
 
 .section { padding: 30px 20px; }
@@ -42,13 +47,13 @@ body {
   border-radius: 12px;
   max-width: 400px;
   margin: auto;
-  margin-top: -40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: -50px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
 .selector select, .selector button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin: 10px 0;
   border-radius: 8px;
 }
@@ -62,7 +67,7 @@ body {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
 .card img { width: 100%; }
@@ -83,7 +88,7 @@ body {
 .gallery img {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .testimonial {
@@ -110,14 +115,14 @@ body {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Encontrá tu alquiler en Mar del Plata sin riesgos</h1>
-  <p>Opciones verificadas • Atención real • Sin sorpresas</p>
-  <a class="btn" href="#propiedades">Ver opciones</a>
+  <h1>Alquileres en Mar del Plata al mejor precio</h1>
+  <p>Reservá fácil • Sin riesgos • Atención inmediata</p>
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20ver%20alquileres%20disponibles">Ver disponibilidad ahora</a>
 </section>
 
 <!-- SELECTOR -->
 <div class="selector">
-  <h3>Buscá rápido</h3>
+  <h3>Buscá tu estadía</h3>
 
   <select id="tipo">
     <option value="departamento">Departamento</option>
@@ -130,30 +135,31 @@ body {
     <option value="6">6+ personas</option>
   </select>
 
-  <button onclick="buscar()">Ver opciones</button>
+  <button onclick="buscar()">Consultar por WhatsApp</button>
 </div>
 
-<!-- GALERÍA -->
+<!-- GALERÍA REAL -->
 <section class="section gallery">
-  <h2>Viví Mar del Plata</h2>
-  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21">
-  <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
-  <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e">
+  <h2>Viví la experiencia Mar del Plata</h2>
+
+  <img src="TU-IMAGEN-LOBO.jpg">
+  <img src="TU-IMAGEN-FLORES.jpg">
+
 </section>
 
 <!-- PROPIEDADES -->
 <section class="section" id="propiedades">
-  <h2>Alquileres disponibles</h2>
+  <h2>Últimas opciones disponibles</h2>
 
   <div class="cards">
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
       <div class="card-content">
-        <span class="badge disponible">Disponible</span>
+        <span class="badge disponible">Disponible hoy</span>
         <h3>Depto en Centro</h3>
         <p>$40.000 por noche</p>
-        <a href="https://wa.me/5492234376369?text=Quiero%20el%20depto%20en%20Centro">Consultar</a>
+        <a class="btn" href="https://wa.me/5492234376369?text=Quiero%20reservar%20el%20depto%20en%20Centro">Reservar ahora</a>
       </div>
     </div>
 
@@ -169,10 +175,10 @@ body {
     <div class="card">
       <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
       <div class="card-content">
-        <span class="badge disponible">Disponible</span>
+        <span class="badge disponible">Quedan pocas fechas</span>
         <h3>Casa para 6 personas</h3>
         <p>$80.000 por noche</p>
-        <a href="https://wa.me/5492234376369?text=Quiero%20la%20casa%20para%206">Consultar</a>
+        <a class="btn" href="https://wa.me/5492234376369?text=Quiero%20la%20casa%20para%206%20personas">Consultar ahora</a>
       </div>
     </div>
 
@@ -181,10 +187,11 @@ body {
 
 <!-- TESTIMONIOS -->
 <section class="section">
-  <h2>Clientes felices</h2>
+  <h2>Opiniones reales</h2>
 
-  <div class="testimonial">“Todo perfecto, sin sorpresas. Volvería a reservar.”</div>
-  <div class="testimonial">“Me ayudaron en todo, súper confiable.”</div>
+  <div class="testimonial">“Reservé en minutos y todo fue tal cual. 100% confiable.”</div>
+  <div class="testimonial">“Nos atendieron al instante y conseguimos justo lo que buscábamos.”</div>
+  <div class="testimonial">“Volvemos el verano que viene sin dudar.”</div>
 
 </section>
 
@@ -192,24 +199,24 @@ body {
 <section class="section">
   <div class="trust">
     <h2>Reservá con tranquilidad</h2>
-    <p>✔ Propiedades verificadas</p>
-    <p>✔ Evitamos estafas</p>
-    <p>✔ Atención real por WhatsApp</p>
-    <p>✔ Te acompañamos en todo el proceso</p>
+    <p>✔ Propiedades verificadas en Mar del Plata</p>
+    <p>✔ Sin intermediarios raros</p>
+    <p>✔ Atención directa por WhatsApp</p>
+    <p>✔ Respuesta rápida</p>
   </div>
 </section>
 
 <!-- CTA FINAL -->
 <section class="footer">
   <h2>¿Listo para tu escapada?</h2>
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20mi%20alquiler">Escribinos</a>
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola%20quiero%20reservar%20mi%20estadía">Reservar ahora</a>
 </section>
 
 <script>
 function buscar() {
   var tipo = document.getElementById("tipo").value;
   var personas = document.getElementById("personas").value;
-  var mensaje = "Hola, busco " + tipo + " para " + personas + " personas en Mar del Plata";
+  var mensaje = "Hola, quiero alquilar un " + tipo + " para " + personas + " personas en Mar del Plata. ¿Qué opciones hay disponibles?";
   window.open("https://wa.me/5492234376369?text=" + encodeURIComponent(mensaje));
 }
 </script>
