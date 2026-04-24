@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Alquileres en Mar del Plata | Ecotyal</title>
+<title>Asesor de Alquileres en Mar del Plata | Ecotyal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,19 +14,14 @@ body {
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
   url('img/IMG_2941.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
   padding:120px 20px;
-  animation: fadeIn 1s ease;
 }
 
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
+/* BOTÓN */
 .btn {
   background:#25D366;
   color:white;
@@ -38,7 +33,7 @@ body {
   font-weight:bold;
 }
 
-/* BUSCADOR FLOTANTE */
+/* BUSCADOR */
 .selector {
   position: sticky;
   top:10px;
@@ -46,7 +41,7 @@ body {
   padding:15px;
   border-radius:12px;
   max-width:400px;
-  margin: auto;
+  margin:auto;
   margin-top:-40px;
   box-shadow:0 6px 14px rgba(0,0,0,0.2);
   z-index:10;
@@ -60,7 +55,10 @@ body {
 }
 
 /* SECCIONES */
-.section { padding:40px 20px; text-align:center; }
+.section {
+  padding:40px 20px;
+  text-align:center;
+}
 
 /* CARDS */
 .cards {
@@ -73,38 +71,34 @@ body {
   border-radius:12px;
   overflow:hidden;
   box-shadow:0 6px 14px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
+  transition:0.3s;
 }
 
 .card:hover {
   transform: translateY(-10px);
 }
 
-.card img { width:100%; }
+/* 🔆 IMÁGENES MÁS LUMINOSAS */
+.card img {
+  width:100%;
+  filter: brightness(1.1) contrast(1.05);
+}
 
-.card-content { padding:15px; }
-
+/* BADGE */
 .badge {
   padding:5px 10px;
   border-radius:6px;
   font-size:12px;
 }
 
-.disponible { background:#e6f7ee; color:#0a7f4f; }
-.reservado { background:#fdecea; color:#b71c1c; }
-
-/* TESTIMONIOS */
-.testimonial {
-  background:white;
-  padding:15px;
-  border-radius:12px;
-  margin:10px auto;
-  max-width:400px;
+.disponible {
+  background:#e6f7ee;
+  color:#0a7f4f;
 }
 
 /* ESCAPADA */
 .escapada {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
   url('img/IMG_2943.jpeg') center/cover no-repeat;
   color:white;
   padding:100px 20px;
@@ -123,12 +117,6 @@ body {
   text-decoration:none;
   z-index:999;
 }
-
-/* CONTADOR */
-#contador {
-  font-weight:bold;
-  margin-top:10px;
-}
 </style>
 </head>
 
@@ -136,22 +124,53 @@ body {
 
 <!-- HERO -->
 <section class="hero">
-  <h1 style="font-size:38px;">
-  Escapadas en Mar del Plata sin complicaciones
-  </h1>
+  <h1>Alquileres seguros en Mar del Plata sin estafas</h1>
 
-  <p style="font-size:18px;">
-  Reservá en minutos • Sin riesgos • Atención inmediata
-  </p>
+  <p>Te ayudamos personalmente a encontrar y verificar tu alquiler</p>
 
   <p style="color:#ffdede;font-weight:bold;">
-  🔥 Alta demanda este mes - Consultá ahora
+  🔥 Alta demanda - Consultá ahora
   </p>
 
   <p id="contador"></p>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero ver alquileres disponibles">
-  Consultar disponibilidad ahora
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero ayuda para encontrar un alquiler seguro">
+  Consultar ahora
+  </a>
+</section>
+
+<!-- DIFERENCIAL -->
+<section class="section">
+  <h2>No alquilás solo. Te acompañamos</h2>
+
+  <p style="max-width:500px;margin:auto;">
+  Evitá estafas y problemas. Nosotros revisamos, hablamos con el dueño y te acompañamos hasta que estés seguro.
+  </p>
+
+  <div style="margin-top:20px;text-align:left;max-width:400px;margin:auto;">
+    <p>✔ Opciones reales</p>
+    <p>✔ Verificación del lugar</p>
+    <p>✔ Contacto con el dueño</p>
+    <p>✔ Acompañamiento completo</p>
+  </div>
+</section>
+
+<!-- 🔥 NUEVA SECCIÓN -->
+<section class="section" style="background:white; border-radius:12px; margin:20px;">
+  <h2>¿Ya viste un alquiler que te interesa?</h2>
+
+  <p style="max-width:500px;margin:auto;">
+  Te ayudamos a revisarlo antes de que tomes una decisión.
+  </p>
+
+  <div style="margin-top:20px;text-align:left;max-width:400px;margin:auto;">
+    <p>✔ Revisamos si es real</p>
+    <p>✔ Analizamos el precio</p>
+    <p>✔ Hablamos con el dueño</p>
+  </div>
+
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero que revises un alquiler">
+  Revisar alquiler
   </a>
 </section>
 
@@ -170,77 +189,65 @@ body {
     <option value="6">6+ personas</option>
   </select>
 
-  <button onclick="buscar()">Buscar ahora</button>
+  <button onclick="buscar()">Consultar ahora</button>
 </div>
-
-<!-- EXPERIENCIA -->
-<section class="section">
-  <h2>Imaginá tu próxima escapada</h2>
-  <p>Despertar frente al mar, caminar por la costa y disfrutar sin preocupaciones</p>
-</section>
 
 <!-- PROPIEDADES -->
 <section class="section">
-  <h2>Últimas opciones disponibles</h2>
+  <h2>Opciones verificadas</h2>
 
   <div class="cards">
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
       <div class="card-content">
-        <span class="badge disponible">Disponible hoy</span>
+        <span class="badge disponible">Verificado</span>
         <h3>Depto en Centro</h3>
         <p>$40.000 por noche</p>
-        <a class="btn" href="https://wa.me/5492234376369?text=Quiero este depto">
-        Consultar disponibilidad ahora
-        </a>
+        <a class="btn" href="#">Consultar disponibilidad</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
-<section class="section">
-  <div class="testimonial">⭐ 4.9/5 en satisfacción</div>
-  <div class="testimonial">“Todo perfecto, sin sorpresas.”</div>
-  <div class="testimonial">“Atención rápida y confiable.”</div>
-</section>
-
-<!-- CONFIANZA -->
-<section class="section">
-  <h2>Reservá sin riesgos</h2>
-  <p>✔ Propiedades verificadas</p>
-  <p>✔ Evitá estafas</p>
-  <p>✔ Atención real</p>
-</section>
-
 <!-- ESCAPADA -->
 <section class="escapada">
-  <h2>Viví tu escapada en Mar del Plata</h2>
-  <p>Las mejores zonas al mejor precio</p>
-  <a class="btn" href="https://wa.me/5492234376369?text=Quiero reservar">
-  Reservar ahora
-  </a>
+  <h2>Disfrutá Mar del Plata sin preocupaciones</h2>
+  <p>Nosotros nos encargamos de todo</p>
+  <a class="btn" href="#">Hablar ahora</a>
 </section>
 
-<!-- BOTÓN FLOTANTE -->
-<a class="floating" href="https://wa.me/5492234376369">
-WhatsApp
-</a>
+<!-- BOTÓN -->
+<a class="floating" href="https://wa.me/5492234376369">WhatsApp</a>
 
+<!-- CONTADOR PRO -->
 <script>
-let num = 3;
-setInterval(()=>{
-  num++;
+let num = Math.floor(Math.random() * 4) + 2;
+
+function actualizar() {
+  let cambio = Math.floor(Math.random() * 3) - 1;
+  num += cambio;
+
+  if (num < 1) num = 1;
+  if (num > 8) num = 8;
+
   document.getElementById("contador").innerText =
-  "🔥 " + num + " personas consultando ahora";
-},4000);
+  "🔥 " + num + " personas viendo opciones ahora";
+}
+
+function loop() {
+  actualizar();
+  let t = Math.random() * 7000 + 5000;
+  setTimeout(loop, t);
+}
+
+loop();
 
 function buscar() {
-  var tipo = document.getElementById("tipo").value;
-  var personas = document.getElementById("personas").value;
-  var mensaje = "Hola, quiero alquilar un " + tipo + " para " + personas + " personas en Mar del Plata";
+  let tipo = document.getElementById("tipo").value;
+  let personas = document.getElementById("personas").value;
+  let mensaje = "Hola quiero ayuda para encontrar un " + tipo + " para " + personas + " personas";
   window.open("https://wa.me/5492234376369?text=" + encodeURIComponent(mensaje));
 }
 </script>
