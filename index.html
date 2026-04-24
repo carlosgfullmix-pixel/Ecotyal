@@ -9,18 +9,32 @@
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom,#f5f7fa,#f3e7d3);
+  background: linear-gradient(to bottom,#eef5ff,#f9f3e8);
 }
 
 /* HERO */
 .hero{
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
   url('img/IMG_2943.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
   padding:100px 20px;
 }
 
+.hero h1{
+  font-size:28px;
+}
+
+.badge-top{
+  background:rgba(255,255,255,0.2);
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:10px;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+/* BOTONES */
 .btn{
   background:#25D366;
   color:white;
@@ -30,6 +44,11 @@ body{
   display:inline-block;
   margin:10px 5px;
   font-weight:bold;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
 }
 
 .btn-alt{
@@ -40,19 +59,13 @@ body{
 /* BLOQUES */
 .box{
   background:white;
-  border-radius:16px;
+  border-radius:18px;
   padding:25px;
   margin:20px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+  box-shadow:0 8px 18px rgba(0,0,0,0.1);
 }
 
-.lista{
-  text-align:left;
-  max-width:500px;
-  margin:20px auto;
-}
-
-/* PERFIL CENTRADO CÍRCULO */
+/* PERFIL */
 .perfil{
   text-align:center;
 }
@@ -61,17 +74,24 @@ body{
   width:140px;
   height:140px;
   object-fit:cover;
-  object-position:center;
   border-radius:50%;
   display:block;
   margin:0 auto 15px;
+  border:4px solid #f3f3f3;
+}
+
+/* LISTA */
+.lista{
+  text-align:left;
+  max-width:500px;
+  margin:20px auto;
 }
 
 /* TESTIMONIOS */
 .testimonio{
-  background:#fafafa;
+  background:#f8f9fb;
   padding:15px;
-  border-radius:10px;
+  border-radius:12px;
   margin-bottom:10px;
 }
 
@@ -83,14 +103,14 @@ body{
 
 .card{
   background:white;
-  border-radius:12px;
+  border-radius:14px;
   overflow:hidden;
   box-shadow:0 6px 14px rgba(0,0,0,0.12);
 }
 
 .card img{
   width:100%;
-  filter: brightness(1.2);
+  filter: brightness(1.15);
 }
 
 .badge{
@@ -103,11 +123,16 @@ body{
 
 /* CIERRE */
 .cierre{
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
   url('img/IMG_2941.jpeg') center/cover no-repeat;
   color:white;
   text-align:center;
   padding:80px 20px;
+}
+
+.small{
+  font-size:13px;
+  opacity:0.8;
 }
 </style>
 </head>
@@ -116,6 +141,11 @@ body{
 
 <!-- HERO -->
 <section class="hero">
+
+  <div class="badge-top">
+    ✔ Evitá estafas ✔ Ahorrá tiempo ✔ Reservá seguro
+  </div>
+
   <p style="opacity:0.8;">Ecotyal · Costa Atlántica</p>
 
   <h1>Vacaciones seguras de principio a fin</h1>
@@ -124,32 +154,37 @@ body{
   Te ayudo a encontrar, verificar y organizar todo tu viaje sin perder plata ni tiempo.
   </p>
 
-  <p style="font-size:14px;opacity:0.8;">
+  <p class="small">
   Mar del Plata · Santa Clara · Villa Gesell · Miramar
   </p>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero organizar mis vacaciones">
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero organizar mis vacaciones en la costa. Te paso fechas y presupuesto:">
   ✈️ Organizar vacaciones
   </a>
 
-  <a class="btn btn-alt" href="https://wa.me/5492234376369?text=Hola quiero que revises un alquiler">
+  <a class="btn btn-alt" href="https://wa.me/5492234376369?text=Hola Carlos, tengo este alquiler y quiero saber si es seguro:">
   🔍 Revisar alquiler
   </a>
+
+  <p class="small">Consulta inicial sin costo</p>
+
 </section>
 
 <!-- PERFIL -->
 <div class="box perfil">
+
   <img src="img/IMG_0131.jpeg">
 
   <h2>Carlos — Ecotyal</h2>
 
   <p>
-  Estoy en la costa y me encargo de que no caigas en estafas y tomes una buena decisión.
+  Estoy en Mar del Plata y trabajo con toda la costa atlántica ayudando a que no caigas en estafas.
   </p>
 
   <p>
   No vendo alquileres: te ayudo a elegir bien y a que tus vacaciones salgan como esperás.
   </p>
+
 </div>
 
 <!-- SERVICIO -->
@@ -169,15 +204,15 @@ body{
 <div class="box" style="text-align:center;">
   <h2>Elegí cómo querés avanzar</h2>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero organizar mis vacaciones en la costa">
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero organizar mis vacaciones en la costa.">
   ✈️ Organizar todo
   </a>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola ya tengo un alquiler y quiero que lo revises">
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, ya tengo un alquiler y quiero que lo revises.">
   🔍 Revisar alquiler
   </a>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero ver opciones disponibles">
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero ver opciones disponibles para la costa.">
   🏠 Ver opciones
   </a>
 </div>
@@ -228,7 +263,7 @@ body{
   Un error puede hacerte perder plata o arruinar el viaje.
   </p>
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero asegurar mis vacaciones">
+  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero asegurar mis vacaciones.">
   Asegurar mi viaje
   </a>
 </section>
