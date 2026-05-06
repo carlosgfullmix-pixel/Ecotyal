@@ -2,79 +2,173 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Multi-IA Simulada</title>
+<title>Laboratorio IA Avanzado</title>
 
 <style>
 body {
+  margin: 0;
   font-family: Arial;
-  background: #0f172a;
-  color: white;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e2e8f0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
   padding: 20px;
+}
+
+h1 {
+  text-align: center;
 }
 
 textarea {
   width: 100%;
-  height: 100px;
-  margin-bottom: 10px;
+  height: 80px;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
 }
 
 button {
-  padding: 10px 20px;
-  background: #22c55e;
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
   border: none;
-  cursor: pointer;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #38bdf8, #22c55e);
+  color: black;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .box {
   margin-top: 15px;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
 }
 
-.analista { background: #1e293b; }
-.critico { background: #334155; }
-.optimizador { background: #475569; }
+.log {
+  font-size: 14px;
+  color: #94a3b8;
+}
 </style>
 </head>
 
 <body>
 
-<h2>🧠 Sistema Multi-IA (Simulado)</h2>
+<div class="container">
 
-<textarea id="input" placeholder="Escribí un problema..."></textarea>
-<br>
-<button onclick="resolver()">Resolver con IAs</button>
+<h1>🧠 Laboratorio IA Autónomo</h1>
 
-<div id="resultado"></div>
+<textarea id="input" placeholder="Ej: Analizar la distribución de ceros de Riemann"></textarea>
+<button onclick="run()">Ejecutar Investigación</button>
+
+<div id="output"></div>
+
+</div>
 
 <script>
-function analista(texto) {
-  return "🔍 Análisis: El problema trata sobre " + texto +
-  ". Se identifican posibles causas y enfoques iniciales.";
+
+// ==========================
+// MODELO EXPERIMENTAL
+// ==========================
+
+function zeta(sReal, sImag) {
+  let sum = 0;
+  let N = 500;
+
+  for (let n = 1; n < N; n++) {
+    let logn = Math.log(n);
+    sum += Math.cos(sImag * logn) / Math.pow(n, sReal);
+  }
+
+  return sum;
 }
 
-function critico(texto) {
-  return "⚠️ Crítica: El análisis es válido, pero falta profundidad. Se recomienda considerar riesgos y alternativas.";
+// ==========================
+// IA: GENERADOR
+// ==========================
+
+function generarHipotesis(iter) {
+  let base = 0.5 + (Math.random() - 0.5) * 0.2;
+  return base.toFixed(3);
 }
 
-function optimizador(a, b) {
-  return "✅ Solución final: Combinando el análisis y la crítica, la mejor solución es estructurar una estrategia clara, evaluar riesgos y ejecutar con mejoras continuas.";
+// ==========================
+// IA: EXPERIMENTADOR
+// ==========================
+
+function experimentar(linea) {
+  let resultados = [];
+
+  for (let t = 10; t < 40; t += 1.5) {
+    let val = zeta(linea, t);
+    resultados.push(Math.abs(val));
+  }
+
+  return resultados;
 }
 
-function resolver() {
-  const input = document.getElementById("input").value;
+// ==========================
+// IA: EVALUADOR
+// ==========================
 
-  const paso1 = analista(input);
-  const paso2 = critico(paso1);
-  const paso3 = optimizador(paso1, paso2);
+function evaluar(resultados) {
+  let promedio = resultados.reduce((a,b)=>a+b,0)/resultados.length;
+  return promedio;
+}
 
-  document.getElementById("resultado").innerHTML = `
-    <div class="box analista">${paso1}</div>
-    <div class="box critico">${paso2}</div>
-    <div class="box optimizador">${paso3}</div>
+// ==========================
+// IA: APRENDIZAJE
+// ==========================
+
+function ajustarHipotesis(actual, score) {
+  let ajuste = (Math.random() - 0.5) * 0.05;
+
+  if (score < 0.2) ajuste *= 0.5;
+  if (score > 0.5) ajuste *= 1.5;
+
+  return (parseFloat(actual) + ajuste).toFixed(3);
+}
+
+// ==========================
+// SISTEMA PRINCIPAL
+// ==========================
+
+function run() {
+
+  let output = "";
+  let hipotesis = generarHipotesis(0);
+
+  for (let i = 1; i <= 5; i++) {
+
+    let resultados = experimentar(hipotesis);
+    let score = evaluar(resultados);
+
+    output += `
+      <div class="box">
+        🔁 Iteración ${i}<br>
+        💡 Hipótesis: Re(s) = ${hipotesis}<br>
+        📊 Error promedio: ${score.toFixed(4)}<br>
+        <div class="log">Resultados (muestra): ${resultados.slice(0,5).map(x=>x.toFixed(3))}</div>
+      </div>
+    `;
+
+    hipotesis = ajustarHipotesis(hipotesis, score);
+  }
+
+  output += `
+    <div class="box">
+      🏁 Hipótesis final optimizada: Re(s) ≈ ${hipotesis}
+    </div>
   `;
+
+  document.getElementById("output").innerHTML = output;
 }
+
 </script>
 
 </body>
