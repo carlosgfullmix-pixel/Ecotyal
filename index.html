@@ -2,18 +2,20 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Laboratorio IA Avanzado</title>
+<title>Laboratorio IA Evolutivo</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 body {
   margin: 0;
   font-family: Arial;
-  background: radial-gradient(circle at top, #0f172a, #020617);
+  background: radial-gradient(circle at top, #020617, #000);
   color: #e2e8f0;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
@@ -22,22 +24,13 @@ h1 {
   text-align: center;
 }
 
-textarea {
-  width: 100%;
-  height: 80px;
-  border-radius: 10px;
-  padding: 10px;
-  border: none;
-}
-
 button {
-  margin-top: 10px;
   padding: 12px;
+  margin-top: 10px;
   width: 100%;
-  border: none;
   border-radius: 10px;
-  background: linear-gradient(45deg, #38bdf8, #22c55e);
-  color: black;
+  border: none;
+  background: linear-gradient(45deg, #22c55e, #38bdf8);
   font-weight: bold;
   cursor: pointer;
 }
@@ -45,14 +38,8 @@ button {
 .box {
   margin-top: 15px;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-}
-
-.log {
-  font-size: 14px;
-  color: #94a3b8;
 }
 </style>
 </head>
@@ -61,112 +48,166 @@ button {
 
 <div class="container">
 
-<h1>🧠 Laboratorio IA Autónomo</h1>
+<h1>🧠 IA Evolutiva Experimental</h1>
 
-<textarea id="input" placeholder="Ej: Analizar la distribución de ceros de Riemann"></textarea>
-<button onclick="run()">Ejecutar Investigación</button>
+<button onclick="start()">Iniciar Investigación</button>
 
-<div id="output"></div>
+<canvas id="chart"></canvas>
+
+<div id="log"></div>
 
 </div>
 
 <script>
 
-// ==========================
-// MODELO EXPERIMENTAL
-// ==========================
+// =======================
+// CONFIG
+// =======================
 
-function zeta(sReal, sImag) {
+let poblacion = [];
+let history = [];
+let running = false;
+
+// =======================
+// MODELO ZETA (simple)
+// =======================
+
+function zeta(s, t) {
   let sum = 0;
-  let N = 500;
+  for (let n = 1; n < 300; n++) {
+    sum += Math.cos(t * Math.log(n)) / Math.pow(n, s);
+  }
+  return Math.abs(sum);
+}
 
-  for (let n = 1; n < N; n++) {
-    let logn = Math.log(n);
-    sum += Math.cos(sImag * logn) / Math.pow(n, sReal);
+// =======================
+// GENERAR POBLACIÓN
+// =======================
+
+function initPoblacion() {
+  poblacion = [];
+  for (let i = 0; i < 20; i++) {
+    poblacion.push(0.5 + (Math.random()-0.5)*0.5);
+  }
+}
+
+// =======================
+// FITNESS
+// =======================
+
+function fitness(h) {
+  let error = 0;
+  for (let t = 10; t < 30; t += 2) {
+    error += zeta(h, t);
+  }
+  return error;
+}
+
+// =======================
+// EVOLUCIÓN
+// =======================
+
+function mutar(h) {
+  return h + (Math.random()-0.5)*0.05;
+}
+
+function cruzar(a, b) {
+  return (a + b)/2;
+}
+
+function evolucionar() {
+
+  let evaluados = poblacion.map(h => ({
+    h,
+    f: fitness(h)
+  }));
+
+  evaluados.sort((a,b)=>a.f - b.f);
+
+  let mejores = evaluados.slice(0, 5);
+
+  let nueva = [];
+
+  // conservar mejores
+  mejores.forEach(m => nueva.push(m.h));
+
+  // cruzar y mutar
+  while (nueva.length < 20) {
+    let a = mejores[Math.floor(Math.random()*mejores.length)].h;
+    let b = mejores[Math.floor(Math.random()*mejores.length)].h;
+
+    let hijo = cruzar(a,b);
+    hijo = mutar(hijo);
+
+    nueva.push(hijo);
   }
 
-  return sum;
+  poblacion = nueva;
+
+  return mejores[0];
 }
 
-// ==========================
-// IA: GENERADOR
-// ==========================
+// =======================
+// GRÁFICO
+// =======================
 
-function generarHipotesis(iter) {
-  let base = 0.5 + (Math.random() - 0.5) * 0.2;
-  return base.toFixed(3);
+let chart;
+
+function initChart() {
+  const ctx = document.getElementById('chart');
+
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Mejor Fitness',
+        data: []
+      }]
+    }
+  });
 }
 
-// ==========================
-// IA: EXPERIMENTADOR
-// ==========================
+// =======================
+// LOOP PRINCIPAL
+// =======================
 
-function experimentar(linea) {
-  let resultados = [];
+function start() {
 
-  for (let t = 10; t < 40; t += 1.5) {
-    let val = zeta(linea, t);
-    resultados.push(Math.abs(val));
-  }
+  if (!chart) initChart();
 
-  return resultados;
-}
+  initPoblacion();
+  running = true;
 
-// ==========================
-// IA: EVALUADOR
-// ==========================
+  let iter = 0;
 
-function evaluar(resultados) {
-  let promedio = resultados.reduce((a,b)=>a+b,0)/resultados.length;
-  return promedio;
-}
+  let loop = setInterval(() => {
 
-// ==========================
-// IA: APRENDIZAJE
-// ==========================
+    if (!running) return;
 
-function ajustarHipotesis(actual, score) {
-  let ajuste = (Math.random() - 0.5) * 0.05;
+    let mejor = evolucionar();
 
-  if (score < 0.2) ajuste *= 0.5;
-  if (score > 0.5) ajuste *= 1.5;
+    history.push(mejor.f);
 
-  return (parseFloat(actual) + ajuste).toFixed(3);
-}
+    chart.data.labels.push(iter);
+    chart.data.datasets[0].data.push(mejor.f);
+    chart.update();
 
-// ==========================
-// SISTEMA PRINCIPAL
-// ==========================
+    document.getElementById("log").innerHTML =
+      `<div class="box">
+        Iteración: ${iter}<br>
+        Mejor hipótesis: ${mejor.h.toFixed(4)}<br>
+        Error: ${mejor.f.toFixed(4)}
+      </div>`;
 
-function run() {
+    // guardar memoria
+    localStorage.setItem("best", JSON.stringify(mejor));
 
-  let output = "";
-  let hipotesis = generarHipotesis(0);
+    iter++;
 
-  for (let i = 1; i <= 5; i++) {
+    if (iter > 50) clearInterval(loop);
 
-    let resultados = experimentar(hipotesis);
-    let score = evaluar(resultados);
-
-    output += `
-      <div class="box">
-        🔁 Iteración ${i}<br>
-        💡 Hipótesis: Re(s) = ${hipotesis}<br>
-        📊 Error promedio: ${score.toFixed(4)}<br>
-        <div class="log">Resultados (muestra): ${resultados.slice(0,5).map(x=>x.toFixed(3))}</div>
-      </div>
-    `;
-
-    hipotesis = ajustarHipotesis(hipotesis, score);
-  }
-
-  output += `
-    <div class="box">
-      🏁 Hipótesis final optimizada: Re(s) ≈ ${hipotesis}
-    </div>
-  `;
-
-  document.getElementById("output").innerHTML = output;
+  }, 500);
 }
 
 </script>
