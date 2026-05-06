@@ -1,337 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
 <meta charset="UTF-8">
-
-<title>Alquileres en Mar del Plata | Evitá estafas y organizá tus vacaciones</title>
-
-<meta name="description" content="¿Buscás alquiler en Mar del Plata? Evitá estafas y organizá tus vacaciones con asesoramiento real 24/7. Te ayudo con alquileres, actividades y más.">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Vacaciones seguras en la costa atlántica">
-<meta property="og:description" content="Te ayudo a evitar estafas y organizar tu viaje con asistencia real durante toda tu estadía.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ecotyal.com">
-<meta property="og:image" content="https://ecotyal.com/img/IMG_2943.jpeg">
-
-<!-- SEO Google -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Ecotyal",
-  "description": "Asesoramiento en alquileres en Mar del Plata y costa atlántica. Evitá estafas y organizá tu viaje con asistencia personalizada.",
-  "areaServed": "Mar del Plata",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Mar del Plata",
-    "addressCountry": "AR"
-  },
-  "telephone": "+5492234376369",
-  "url": "https://ecotyal.com"
-}
-</script>
-<meta charset="UTF-8">
-<title>Ecotyal | Vacaciones seguras en la costa atlántica</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-IA Simulada</title>
 
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom,#eef5ff,#f9f3e8);
+body {
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+  padding: 20px;
 }
 
-  .hero{
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.35) 0%,
-    rgba(0,0,0,0.15) 40%,
-    rgba(0,0,0,0) 70%
-  ),
-  url('img/IMG_2943.jpeg') center/cover no-repeat;
-  color:white;
-  }
-
-.badge-top{
-  background:rgba(255,255,255,0.2);
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:10px;
-  margin-bottom:10px;
-  font-size:14px;
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
 }
 
-/* BOTONES */
-.btn{
-  background:#25D366;
-  color:white;
-  padding:14px 22px;
-  border-radius:12px;
-  text-decoration:none;
-  display:inline-block;
-  margin:10px 5px;
-  font-weight:bold;
-  transition:0.3s;
+button {
+  padding: 10px 20px;
+  background: #22c55e;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.btn:hover{
-  transform:scale(1.05);
+.box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
-.btn-alt{
-  background:white;
-  color:#333;
-}
-
-/* BLOQUES */
-.box{
-  background:white;
-  border-radius:18px;
-  padding:25px;
-  margin:20px;
-  box-shadow:0 8px 18px rgba(0,0,0,0.1);
-}
-
-/* PERFIL */
-.perfil{
-  text-align:center;
-}
-
-.perfil img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  border-radius:50%;
-  display:block;
-  margin:0 auto 15px;
-  border:4px solid #f3f3f3;
-}
-
-/* LISTA */
-.lista{
-  text-align:left;
-  max-width:500px;
-  margin:20px auto;
-}
-
-/* TESTIMONIOS */
-.testimonio{
-  background:#f8f9fb;
-  padding:15px;
-  border-radius:12px;
-  margin-bottom:10px;
-}
-
-/* CARDS */
-.cards{
-  display:grid;
-  gap:20px;
-}
-
-.card{
-  background:white;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 6px 14px rgba(0,0,0,0.12);
-}
-
-.card img{
-  width:100%;
-  filter: brightness(1.15);
-}
-
-.badge{
-  background:#e6f7ee;
-  color:#0a7f4f;
-  padding:5px 10px;
-  border-radius:6px;
-  font-size:12px;
-}
-
-/* CIERRE */
-.cierre{
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('img/IMG_2941.jpeg') center/cover no-repeat;
-  color:white;
-  text-align:center;
-  padding:80px 20px;
-}
-
-.small{
-  font-size:13px;
-  opacity:0.8;
-}
+.analista { background: #1e293b; }
+.critico { background: #334155; }
+.optimizador { background: #475569; }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
+<h2>🧠 Sistema Multi-IA (Simulado)</h2>
 
-  <div class="badge-top">
-    ✔ Evitá estafas ✔ Ahorrá tiempo ✔ Reservá seguro
-  </div>
+<textarea id="input" placeholder="Escribí un problema..."></textarea>
+<br>
+<button onclick="resolver()">Resolver con IAs</button>
 
-  <p style="opacity:0.8;">Ecotyal · Costa Atlántica</p>
+<div id="resultado"></div>
 
-  <h1>Vacaciones seguras de principio a fin</h1>
+<script>
+function analista(texto) {
+  return "🔍 Análisis: El problema trata sobre " + texto +
+  ". Se identifican posibles causas y enfoques iniciales.";
+}
 
-  <p>
-  No estás contratando una web, estás hablando con alguien que está acá.
-  </p>
+function critico(texto) {
+  return "⚠️ Crítica: El análisis es válido, pero falta profundidad. Se recomienda considerar riesgos y alternativas.";
+}
 
-  <p class="small">
-  Mar del Plata · Santa Clara · Miramar
-  </p>
+function optimizador(a, b) {
+  return "✅ Solución final: Combinando el análisis y la crítica, la mejor solución es estructurar una estrategia clara, evaluar riesgos y ejecutar con mejoras continuas.";
+}
 
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero organizar mis vacaciones en la costa. Te paso fechas y presupuesto:">
-  ✈️ Organizar vacaciones
-  </a>
+function resolver() {
+  const input = document.getElementById("input").value;
 
-  <a class="btn btn-alt" href="https://wa.me/5492234376369?text=Hola Carlos, tengo este alquiler y quiero saber si es seguro:">
-  🔍 Revisar alquiler
-  </a>
+  const paso1 = analista(input);
+  const paso2 = critico(paso1);
+  const paso3 = optimizador(paso1, paso2);
 
-  <p class="small">Consulta inicial sin costo</p>
-
-</section>
-
-<!-- PERFIL -->
-<div class="box perfil">
-
-  <img src="img/IMG_0131.jpeg">
-
-  <h2>Carlos — Ecotyal</h2>
-
-  <p>
-  Estoy en Mar del Plata y trabajo con toda la costa atlántica ayudando a que no caigas en estafas.
-  </p>
-
-  <p>
-  No vendo alquileres: te ayudo a elegir bien y a que tus vacaciones salgan como esperás.
-  </p>
-
-</div>
-
-<!-- ASISTENCIA -->
-<div class="box" style="background: linear-gradient(135deg,#fff,#f1f7ff);">
-
-  <h2>🛎️ No estás solo en tus vacaciones</h2>
-
-  <p style="max-width:520px;margin:auto;">
-  Si pasa algo, tenés a alguien que responde y te da una mano durante toda tu estadía.
-  </p>
-
-  <div class="lista">
-    <p>✔ Asistencia durante toda tu estadía</p>
-    <p>✔ Respuesta rápida por WhatsApp</p>
-    <p>✔ Recomendaciones reales (lugares, playas, salidas)</p>
-    <p>✔ Ayuda con reservas y cambios</p>
-    <p>✔ Alquiler de vehículos y actividades</p>
-    <p>✔ Contactos confiables en la zona</p>
-  </div>
-
-  <p>
-  <strong>No es solo el alquiler: es tener a alguien acá que te responde.</strong>
-  </p>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero viajar tranquilo sabiendo que tengo asistencia durante mi estadía.">
-  Consultar asistencia
-  </a>
-
-</div>
-
-<!-- SERVICIO -->
-<div class="box">
-  <h2>¿Qué hago por vos?</h2>
-
-  <div class="lista">
-    <p>✔ Encuentro alquileres reales</p>
-    <p>✔ Verifico que no sea estafa</p>
-    <p>✔ Analizo precios</p>
-    <p>✔ Hablo con dueños</p>
-    <p>✔ Te ayudo con el viaje si lo necesitás</p>
-  </div>
-</div>
-
-<!-- ACCIONES -->
-<div class="box" style="text-align:center;">
-  <h2>Elegí cómo querés avanzar</h2>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero organizar mis vacaciones en la costa.">
-  ✈️ Organizar todo
-  </a>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, ya tengo un alquiler y quiero que lo revises.">
-  🔍 Revisar alquiler
-  </a>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero ver opciones disponibles para la costa.">
-  🏠 Ver opciones
-  </a>
-</div>
-
-<!-- TESTIMONIOS -->
-<div class="box">
-  <h2>Casos reales</h2>
-
-  <div class="testimonio">“Me iban a estafar y lo evitamos.”</div>
-  <div class="testimonio">“Me organizó todo y fue clave.”</div>
-  <div class="testimonio">“Reservé tranquilo gracias a esto.”</div>
-</div>
-
-<!-- PROPIEDADES -->
-<div class="box">
-  <h2>Opciones verificadas</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-      <div style="padding:15px;">
-        <span class="badge">Disponible</span>
-        <h3>Depto Centro</h3>
-        <p>$40.000</p>
-        <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero el depto en Centro">Consultar</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
-      <div style="padding:15px;">
-        <span class="badge">Disponible</span>
-        <h3>Playa Grande</h3>
-        <p>$65.000</p>
-        <a class="btn" href="https://wa.me/5492234376369?text=Hola quiero Playa Grande">Consultar</a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- CIERRE -->
-<section class="cierre">
-  <h2>No arriesgues tus vacaciones</h2>
-
-  <p>
-  Un error puede hacerte perder plata o arruinar el viaje.
-  </p>
-
-  <a class="btn" href="https://wa.me/5492234376369?text=Hola Carlos, quiero asegurar mis vacaciones.">
-  Asegurar mi viaje
-  </a>
-</section>
-
-<!-- FOOTER -->
-<footer style="text-align:center;padding:30px;color:#666;">
-  <p><strong>Ecotyal</strong></p>
-  <p>Vacaciones seguras en la costa atlántica</p>
-  <p>📍 Mar del Plata</p>
-</footer>
+  document.getElementById("resultado").innerHTML = `
+    <div class="box analista">${paso1}</div>
+    <div class="box critico">${paso2}</div>
+    <div class="box optimizador">${paso3}</div>
+  `;
+}
+</script>
 
 </body>
 </html>
