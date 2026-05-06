@@ -2,44 +2,51 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Laboratorio IA Evolutivo</title>
+<title>Laboratorio IA Científica</title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: radial-gradient(circle at top, #020617, #000);
-  color: #e2e8f0;
+body{
+  margin:0;
+  font-family:Arial;
+  background:radial-gradient(circle,#020617,#000);
+  color:#e2e8f0;
 }
-
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
 }
-
-h1 {
-  text-align: center;
+textarea{
+  width:100%;
+  height:80px;
+  border-radius:10px;
+  padding:10px;
+  border:none;
 }
-
-button {
-  padding: 12px;
-  margin-top: 10px;
-  width: 100%;
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(45deg, #22c55e, #38bdf8);
-  font-weight: bold;
-  cursor: pointer;
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(45deg,#22c55e,#38bdf8);
+  font-weight:bold;
+  cursor:pointer;
 }
-
-.box {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.05);
+.box{
+  margin-top:10px;
+  padding:15px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+}
+.discover{
+  border:2px solid #22c55e;
+}
+footer{
+  margin-top:40px;
+  text-align:center;
 }
 </style>
 </head>
@@ -48,166 +55,318 @@ button {
 
 <div class="container">
 
-<h1>🧠 IA Evolutiva Experimental</h1>
+<h1>🧠 Laboratorio IA Científica</h1>
 
-<button onclick="start()">Iniciar Investigación</button>
+<textarea id="problema" placeholder="Ej: analizar ondas, función matemática, reacción química"></textarea>
+<button onclick="iniciarDesdeTexto()">Analizar problema</button>
 
 <canvas id="chart"></canvas>
 
 <div id="log"></div>
+<div id="discoveries"></div>
+
+<footer>
+<h2>🔬 Modos Manuales</h2>
+<button onclick="setModo('math')">🔢 Matemática</button>
+<button onclick="setModo('physics')">⚛️ Física</button>
+<button onclick="setModo('chemistry')">🧪 Química</button>
+<button onclick="setModo('hybrid')">🧬 Híbrido</button>
+</footer>
 
 </div>
 
 <script>
 
-// =======================
-// CONFIG
-// =======================
+// ======================
+// CONFIG GLOBAL
+// ======================
 
+let modo = "math";
 let poblacion = [];
-let history = [];
-let running = false;
+let chart;
+let bestGlobal = Infinity;
 
-// =======================
-// MODELO ZETA (simple)
-// =======================
+// ======================
+// DETECTOR DE MODO
+// ======================
 
-function zeta(s, t) {
-  let sum = 0;
-  for (let n = 1; n < 300; n++) {
-    sum += Math.cos(t * Math.log(n)) / Math.pow(n, s);
+function detectarModo(texto){
+  texto = texto.toLowerCase();
+
+  let score = {math:0, physics:0, chemistry:0};
+
+  if(texto.includes("función") || texto.includes("número") || texto.includes("riemann")) score.math+=2;
+  if(texto.includes("onda") || texto.includes("energía") || texto.includes("movimiento")) score.physics+=2;
+  if(texto.includes("reacción") || texto.includes("quím") || texto.includes("mol")) score.chemistry+=2;
+
+  let max = Math.max(...Object.values(score));
+  let keys = Object.keys(score).filter(k => score[k] === max && max>0);
+
+  if(keys.length>1) return "hybrid";
+
+  return keys[0] || "math";
+}
+
+// ======================
+// UI
+// ======================
+
+function setModo(m){
+  modo = m;
+  aplicarColorModo();
+}
+
+function aplicarColorModo(){
+  let c = "#38bdf8";
+  if(modo==="physics") c="#facc15";
+  if(modo==="chemistry") c="#22c55e";
+  if(modo==="hybrid") c="#a855f7";
+
+  document.body.style.boxShadow = `inset 0 0 100px ${c}`;
+}
+
+// ======================
+// ZETA (math)
+// ======================
+
+function zeta(s,t){
+  let sum=0;
+  for(let n=1;n<150;n++){
+    sum+=Math.cos(t*Math.log(n))/Math.pow(n,s);
   }
   return Math.abs(sum);
 }
 
-// =======================
-// GENERAR POBLACIÓN
-// =======================
+// ======================
+// ÁRBOLES
+// ======================
 
-function initPoblacion() {
-  poblacion = [];
-  for (let i = 0; i < 20; i++) {
-    poblacion.push(0.5 + (Math.random()-0.5)*0.5);
+const ops=["+","-","*"];
+const funcs=["sin","cos","log"];
+
+function rand(a,b){ return Math.random()*(b-a)+a; }
+
+function crearNodo(p=0){
+  if(p>3 || Math.random()<0.3){
+    return {tipo:"const",valor:rand(0.4,0.6)};
   }
+
+  if(Math.random()<0.5){
+    return {
+      tipo:"op",
+      op:ops[Math.floor(Math.random()*ops.length)],
+      izq:crearNodo(p+1),
+      der:crearNodo(p+1)
+    };
+  }
+
+  return {
+    tipo:"func",
+    func:funcs[Math.floor(Math.random()*funcs.length)],
+    arg:crearNodo(p+1)
+  };
 }
 
-// =======================
-// FITNESS
-// =======================
+// ======================
+// EVALUAR
+// ======================
 
-function fitness(h) {
-  let error = 0;
-  for (let t = 10; t < 30; t += 2) {
-    error += zeta(h, t);
+function evalNodo(n,t){
+  if(n.tipo==="const") return n.valor;
+
+  if(n.tipo==="op"){
+    let a=evalNodo(n.izq,t);
+    let b=evalNodo(n.der,t);
+    if(n.op==="+") return a+b;
+    if(n.op==="-") return a-b;
+    if(n.op==="*") return a*b;
+  }
+
+  if(n.tipo==="func"){
+    let x=evalNodo(n.arg,t);
+    if(n.func==="sin") return Math.sin(x);
+    if(n.func==="cos") return Math.cos(x);
+    if(n.func==="log") return Math.log(Math.abs(x)+1);
+  }
+
+  return 0.5;
+}
+
+// ======================
+// FITNESS POR DOMINIO
+// ======================
+
+function fitness(ind){
+
+  if(modo==="math") return fitnessMath(ind);
+  if(modo==="physics") return fitnessPhysics(ind);
+  if(modo==="chemistry") return fitnessChem(ind);
+
+  return (fitnessMath(ind)+fitnessPhysics(ind)+fitnessChem(ind))/3;
+}
+
+function fitnessMath(ind){
+  let error=0;
+  for(let t=10;t<30;t+=2){
+    let s=evalNodo(ind.tree,t);
+    error+=zeta(s,t);
   }
   return error;
 }
 
-// =======================
+function fitnessPhysics(ind){
+  let error=0;
+  for(let t=0;t<10;t++){
+    let pred=evalNodo(ind.tree,t);
+    let real=Math.sin(t);
+    error+=Math.abs(pred-real);
+  }
+  return error;
+}
+
+function fitnessChem(ind){
+  let error=0;
+  for(let t=1;t<10;t++){
+    let pred=evalNodo(ind.tree,t);
+    let real=Math.exp(-t/5);
+    error+=Math.abs(pred-real);
+  }
+  return error;
+}
+
+// ======================
+// INDIVIDUO
+// ======================
+
+function crearInd(){
+  return {
+    tree: crearNodo(),
+    mutRate: rand(0.1,0.4)
+  };
+}
+
+// ======================
 // EVOLUCIÓN
-// =======================
+// ======================
 
-function mutar(h) {
-  return h + (Math.random()-0.5)*0.05;
+function mutar(ind){
+  let n=JSON.parse(JSON.stringify(ind));
+
+  if(Math.random()<n.mutRate){
+    n.tree=crearNodo();
+  }
+
+  n.mutRate+=rand(-0.05,0.05);
+  n.mutRate=Math.max(0.05,Math.min(0.5,n.mutRate));
+
+  return n;
 }
 
-function cruzar(a, b) {
-  return (a + b)/2;
+function cruzar(a,b){
+  return {
+    tree: Math.random()<0.5 ? a.tree : b.tree,
+    mutRate: (a.mutRate+b.mutRate)/2
+  };
 }
 
-function evolucionar() {
+// ======================
+// PRINT
+// ======================
 
-  let evaluados = poblacion.map(h => ({
-    h,
-    f: fitness(h)
-  }));
+function print(n){
+  if(n.tipo==="const") return n.valor.toFixed(3);
+  if(n.tipo==="op") return `(${print(n.izq)} ${n.op} ${print(n.der)})`;
+  if(n.tipo==="func") return `${n.func}(${print(n.arg)})`;
+}
 
-  evaluados.sort((a,b)=>a.f - b.f);
+// ======================
+// LOOP
+// ======================
 
-  let mejores = evaluados.slice(0, 5);
+function step(iter){
 
-  let nueva = [];
+  let evals=poblacion.map(i=>({i,f:fitness(i)}));
+  evals.sort((a,b)=>a.f-b.f);
 
-  // conservar mejores
-  mejores.forEach(m => nueva.push(m.h));
+  let best=evals[0];
 
-  // cruzar y mutar
-  while (nueva.length < 20) {
-    let a = mejores[Math.floor(Math.random()*mejores.length)].h;
-    let b = mejores[Math.floor(Math.random()*mejores.length)].h;
+  chart.data.labels.push(iter);
+  chart.data.datasets[0].data.push(best.f);
+  chart.update();
 
-    let hijo = cruzar(a,b);
-    hijo = mutar(hijo);
+  document.getElementById("log").innerHTML=`
+  <div class="box">
+    🧠 Modo: ${modo}<br>
+    Iteración: ${iter}<br>
+    Teoría: ${print(best.i.tree)}<br>
+    Mutación: ${best.i.mutRate.toFixed(2)}<br>
+    Error: ${best.f.toFixed(4)}
+  </div>`;
+
+  if(best.f < bestGlobal-0.3){
+    bestGlobal = best.f;
+
+    document.getElementById("discoveries").innerHTML += `
+    <div class="box discover">
+      🏆 Descubrimiento<br>
+      ${print(best.i.tree)}<br>
+      Error: ${best.f.toFixed(4)}
+    </div>`;
+  }
+
+  let nueva=[];
+  let top=evals.slice(0,5);
+
+  top.forEach(x=>nueva.push(x.i));
+
+  while(nueva.length<20){
+    let a=top[Math.floor(Math.random()*top.length)].i;
+    let b=top[Math.floor(Math.random()*top.length)].i;
+
+    let hijo=cruzar(a,b);
+    hijo=mutar(hijo);
 
     nueva.push(hijo);
   }
 
-  poblacion = nueva;
-
-  return mejores[0];
+  poblacion=nueva;
 }
 
-// =======================
-// GRÁFICO
-// =======================
+// ======================
+// START
+// ======================
 
-let chart;
+function start(){
 
-function initChart() {
-  const ctx = document.getElementById('chart');
+  if(!chart){
+    const ctx=document.getElementById("chart");
+    chart=new Chart(ctx,{
+      type:"line",
+      data:{labels:[],datasets:[{label:"Error",data:[]}]}
+    });
+  }
 
-  chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [],
-      datasets: [{
-        label: 'Mejor Fitness',
-        data: []
-      }]
-    }
-  });
-}
+  poblacion=[];
+  for(let i=0;i<20;i++) poblacion.push(crearInd());
 
-// =======================
-// LOOP PRINCIPAL
-// =======================
+  let iter=0;
 
-function start() {
-
-  if (!chart) initChart();
-
-  initPoblacion();
-  running = true;
-
-  let iter = 0;
-
-  let loop = setInterval(() => {
-
-    if (!running) return;
-
-    let mejor = evolucionar();
-
-    history.push(mejor.f);
-
-    chart.data.labels.push(iter);
-    chart.data.datasets[0].data.push(mejor.f);
-    chart.update();
-
-    document.getElementById("log").innerHTML =
-      `<div class="box">
-        Iteración: ${iter}<br>
-        Mejor hipótesis: ${mejor.h.toFixed(4)}<br>
-        Error: ${mejor.f.toFixed(4)}
-      </div>`;
-
-    // guardar memoria
-    localStorage.setItem("best", JSON.stringify(mejor));
-
+  let loop=setInterval(()=>{
+    step(iter);
     iter++;
+    if(iter>80) clearInterval(loop);
+  },400);
+}
 
-    if (iter > 50) clearInterval(loop);
+// ======================
+// AUTO INICIO
+// ======================
 
-  }, 500);
+function iniciarDesdeTexto(){
+  let texto = document.getElementById("problema").value;
+  modo = detectarModo(texto);
+  aplicarColorModo();
+  start();
 }
 
 </script>
